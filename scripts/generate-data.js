@@ -21,7 +21,7 @@ const tasksArr = range(15, () => ({
   id: faker.datatype.uuid(),
   title: faker.lorem.sentence(random(10)),
   description: faker.lorem.lines(2),
-  createdBy: usersArr[random(20)],
+  createdBy: usersArr[random(19)],
   deadline: faker.date.soon(30),
   objectives: range(random(8), () => ({
     title: faker.lorem.sentence(random(8)),
@@ -33,7 +33,7 @@ const tasksArr = range(15, () => ({
 const boardArr = range(4, () => ({
   id: faker.datatype.uuid(),
   title: faker.lorem.sentence(random(5)),
-  createdBy: usersArr[random(20)],
+  createdBy: usersArr[random(19)],
   columns: {
     todo: range(random(10), () => tasksArr[random(14)]),
     inProgress: range(random(5), () => tasksArr[random(14)]),
