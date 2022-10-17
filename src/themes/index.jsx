@@ -13,6 +13,7 @@ export const lightTheme = {
   red500: "#FF4D5E",
 };
 
+//TODO choose a color palette
 export const darkTheme = {
   textWhite: "#FFFFFF",
   textDark800: "#141522",
@@ -23,7 +24,8 @@ export const darkTheme = {
   light700: "#EBEDF7",
   light500: "#F5F5F7",
   light200: "#FAFAFA",
-  blue700: "#546FFF",
+  blue700: "#000000",
+  // blue700: "#546FFF",
   blue300: "#BAC8FF",
   red500: "#FF4D5E",
 };
