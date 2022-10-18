@@ -16,7 +16,8 @@ export const lightTheme = {
 //TODO choose a color palette
 export const darkTheme = {
   textWhite: "#FFFFFF",
-  textDark800: "#141522",
+  textDark800: "#8E92BC",
+  // textDark800: "#141522",
   textDark500: "#54577A",
   textDark300: "#8E92BC",
   dark800: "#141522",
