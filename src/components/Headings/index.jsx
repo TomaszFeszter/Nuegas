@@ -1,5 +1,6 @@
 import styled from "styled-components";
 //TODO refactor DRY
+//Some headings are paragraphs
 export const H1 = styled.h1`
   color: ${(props) => props.fontColor || props.theme.textDark800};
   font-weight: ${(props) => props.fontWeight || 600};

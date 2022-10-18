@@ -2,6 +2,8 @@ import React, { useState } from "react";
 import { ThemeProvider } from "styled-components";
 import { Button } from "./components/Button";
 import { H1, H2, H3, H4, H5 } from "./components/Headings";
+import { GlobalFonts } from "./fonts/fonts";
+import { GlobalStyle } from "./styles/globalStyles";
 import { lightTheme } from "./themes";
 import { darkTheme } from "./themes";
 
@@ -15,6 +17,8 @@ function App() {
   return (
     <div className="App">
       <ThemeProvider theme={theme === "light" ? lightTheme : darkTheme}>
+        <GlobalFonts />
+        <GlobalStyle />
         <Button onClick={themeToggler}>testTheme</Button>
         <H1 /*lineHeight={"2.4rem"}*/>test h1</H1>
         <H2 /*fontSize={"1.4rem"}*/>test h2</H2>
