@@ -1,14 +1,21 @@
+// eslint-disable-next-line no-undef
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    es2021: true,
   },
-  extends: ["eslint:recommended", "plugin:react/recommended", "plugin:storybook/recommended"],
+  extends: [
+    "eslint:recommended",
+    "plugin:react/recommended",
+    "plugin:storybook/recommended",
+  ],
   overrides: [],
   parserOptions: {
     ecmaVersion: "latest",
-    sourceType: "module"
+    sourceType: "module",
   },
   plugins: ["react"],
-  rules: {}
+  rules: {
+    "react/prop-types": "off",
+  },
 };
