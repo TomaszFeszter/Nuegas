@@ -23,7 +23,7 @@ Defalult.args = {
 };
 
 export const InputEmail = (args) => (
-  <Field bottomSpacing id="email" label="Email">
+  <Field input id="email" label="Email">
     <Input id="email" {...args} />
   </Field>
 );

@@ -18,7 +18,7 @@ export default {
 export const Defalult = (args) => <Switch {...args} />;
 
 export const SwitchWithLabel = (args) => (
-  <Field leftSpacing id="switch" label="switch label" lHeight="3rem">
+  <Field switch id="switch" label="switch label" lHeight="3rem">
     <Switch id="switch" {...args} />
   </Field>
 );

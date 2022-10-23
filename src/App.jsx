@@ -35,14 +35,14 @@ function App() {
           Button
         </Btn>
         <Field
-          leftSpacing
+          switch
           id="testCheckbox"
           label="checkbox label"
           padding="0.45rem 0"
         >
           <Switch id="testCheckbox" />
         </Field>
-        <Field id="inputText" label="Type something" bottomSpacing>
+        <Field id="inputText" label="Type something" input>
           <Input type="email" id="inputText" placeholder="email" />
         </Field>
         <RadioInput
@@ -57,7 +57,7 @@ function App() {
           selectedOption={language}
           changeSelectedOption={setLanguage}
         />
-        <Progress max="10" value="7"></Progress>
+        <Progress max="10" value="7" title></Progress>
       </ThemeProvider>
     </div>
   );

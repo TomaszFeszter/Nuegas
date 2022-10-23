@@ -30,13 +30,15 @@ const FieldComponent = ({
 
 export const Field = styled(FieldComponent)`
   display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
+  ${(props) =>
+    props.icon
+      ? "flex-direction: row-reverse;  align-items: center; justify-content: start;"
+      : "flex-direction: column;  align-items: flex-start; justify-content: center;"};
   position: relative;
   padding: ${(props) => props.padding && props.padding};
   label {
-    padding-left: ${(props) => props.leftSpacing && "8rem"};
-    padding-bottom: ${(props) => props.bottomSpacing && "2rem"};
+    ${(props) => props.icon && "padding-left: 0.8rem;"};
+    ${(props) => props.switch && "padding-left: 8rem;"};
+    ${(props) => props.input && "padding-bottom: 2rem;"};
   }
 `;

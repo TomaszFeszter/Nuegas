@@ -1,10 +1,11 @@
-import { Progress } from ".";
 import React from "react";
+import { Clock } from "react-feather";
+import { IconLabel } from ".";
 import { StoryTemplate } from "../../Helpers/StoryTemplate";
 
 export default {
-  title: "Progress",
-  component: Progress,
+  title: "IconLabel",
+  component: IconLabel,
   decorators: [
     (Story) => (
       <StoryTemplate>
@@ -14,10 +15,8 @@ export default {
   ],
 };
 
-export const Default = (args) => <Progress {...args} />;
-
+export const Default = (args) => <IconLabel {...args}></IconLabel>;
 Default.args = {
-  value: "70",
-  max: "100",
-  title: false,
+  label: "icon label",
+  icon: <Clock />,
 };
