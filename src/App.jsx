@@ -12,6 +12,7 @@ import { Input } from "./components/Input";
 import { RadioInput } from "./components/Radioinput";
 import { Dropdown } from "./components/Dropdown";
 import { useState } from "react";
+import { Progress } from "./components/Progress";
 
 function App() {
   const [language, setLanguage] = useState("English");
@@ -37,7 +38,7 @@ function App() {
           leftSpacing
           id="testCheckbox"
           label="checkbox label"
-          padding="0.4rem 0"
+          padding="0.45rem 0"
         >
           <Switch id="testCheckbox" />
         </Field>
@@ -56,6 +57,7 @@ function App() {
           selectedOption={language}
           changeSelectedOption={setLanguage}
         />
+        <Progress max="10" value="7"></Progress>
       </ThemeProvider>
     </div>
   );
