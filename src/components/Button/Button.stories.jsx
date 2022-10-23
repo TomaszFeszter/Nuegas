@@ -18,13 +18,25 @@ export default {
 export const Primary = (args) => <Btn {...args} />;
 Primary.args = {
   children: "Button",
-  leftIcon: <ArrowDown />,
 };
 export const Secondary = (args) => <Btn secondary {...args} />;
 Secondary.args = {
   children: "Button",
-  rightIcon: <ArrowDown />,
 };
+
+export const LeftIcon = (args) => <Btn {...args} />;
+LeftIcon.args = {
+  children: "Button",
+  leftIcon: <ArrowDown />,
+  secondary: false,
+};
+export const RightIcon = (args) => <Btn {...args} />;
+RightIcon.args = {
+  children: "Button",
+  rightIcon: <ArrowDown />,
+  secondary: false,
+};
+
 export const IconOnly = (args) => <Btn {...args} />;
 IconOnly.args = {
   rightIcon: <ArrowDown />,

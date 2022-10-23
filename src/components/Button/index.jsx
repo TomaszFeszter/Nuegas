@@ -26,7 +26,7 @@ export const Btn = styled(BtnComponent)`
   border: ${(props) =>
     props.secondary ? `1px solid ${props.theme.blue200}` : "none"};
   border-radius: 1rem;
-  font-family: "Plus Jakarta Sans";
+  font-family: "Plus Jakarta Sans", sans-serif;
   font-size: 1.2rem;
   font-weight: 600;
   line-height: 1.9rem;

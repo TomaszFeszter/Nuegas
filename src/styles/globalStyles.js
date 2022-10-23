@@ -13,4 +13,8 @@ html {
 body {
   font-family: 'Plus Jakarta Sans', sans-serif;
 }
+
+ul, ol {
+  list-style: none;
+}
 `;

@@ -6,6 +6,7 @@ export const lightTheme = {
   white: "#FFFFFF",
   dark800: "#141522",
   dark500: "#54577A",
+  light900: "#DCE4FF",
   light800: "#DFE1F3",
   light700: "#EBEDF7",
   light500: "#F5F5F7",
