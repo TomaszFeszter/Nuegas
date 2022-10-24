@@ -20,7 +20,7 @@ const ProgressComponent = ({ className, value, max, title, ...rest }) => {
 
 export const Progress = styled(ProgressComponent)`
   max-width: ${(props) =>
-    props.long ? "32.5rem" : props.width ? props.width : "29rem"};
+    props.long ? "33.5rem" : props.width ? props.width : "29rem"};
 
   title,
   progress {
