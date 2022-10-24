@@ -16,6 +16,7 @@ const AvatarListComponent = ({ className, imgList }) => {
 
 export const AvatarList = styled(AvatarListComponent)`
   position: relative;
+  width: 8.5rem;
   img {
     position: absolute;
     top: 50%;
