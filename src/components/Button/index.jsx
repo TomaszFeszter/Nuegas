@@ -1,8 +1,14 @@
 import React from "react";
 import styled from "styled-components";
 
-const BtnComponent = ({ className, leftIcon, rightIcon, children }) => (
-  <button className={className}>
+const BtnComponent = ({
+  className,
+  leftIcon,
+  rightIcon,
+  handleClick,
+  children,
+}) => (
+  <button onClick={handleClick} className={className}>
     {leftIcon && leftIcon}
     {children && <span>{children}</span>}
     {rightIcon && rightIcon}
@@ -27,9 +33,11 @@ export const Btn = styled(BtnComponent)`
     props.secondary ? `1px solid ${props.theme.blue200}` : "none"};
   border-radius: 1rem;
   font-family: "Plus Jakarta Sans", sans-serif;
-  font-size: 1.2rem;
-  font-weight: 600;
-  line-height: 1.9rem;
+
+  font-weight: ${(props) => props.fontWeight || 600};
+  font-size: ${(props) => props.fontSize || "1.2rem"};
+  line-height: ${(props) => props.lineHeight || "1.9rem"};
+
   color: ${(props) =>
     props.secondary ? props.theme.textDark500 : props.theme.textWhite};
 

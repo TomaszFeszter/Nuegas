@@ -20,7 +20,7 @@ export const AvatarList = styled(AvatarListComponent)`
   img {
     position: absolute;
     top: 50%;
-    right: 6.5rem;
+    right: 8rem;
   }
 
   ${() => {
@@ -30,7 +30,7 @@ export const AvatarList = styled(AvatarListComponent)`
       styles += `
       img:nth-child(${6 - i}) {
         z-index: ${6 - i};
-        transform: translate(${1.6 * (5 - i)}rem, -50%);
+        transform: translate(${1.6 * (6 - i)}rem, -50%);
   }
       `;
     }

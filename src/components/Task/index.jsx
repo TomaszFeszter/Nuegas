@@ -2,7 +2,10 @@ import React from "react";
 import { Clock } from "react-feather";
 import styled from "styled-components";
 import { AvatarList } from "../AvatarList";
+import { Btn } from "../Button";
+import { Hr } from "../Hr";
 import { IconLabel } from "../IconLabel";
+import { List } from "../List";
 import { P1, P2 } from "../Parahraphs";
 import { Progress } from "../Progress";
 
@@ -15,6 +18,10 @@ const TaskComponent = ({
   taskLength,
   deadline,
   colaborators,
+  details,
+  taskList,
+  listHeading,
+  handleClick,
 }) => {
   const TaskImg = styled.figure`
     border-radius: 1.5rem;
@@ -32,6 +39,16 @@ const TaskComponent = ({
     justify-content: space-between;
   `;
 
+  const Details = styled.div`
+    padding-top: 0.8rem;
+    hr {
+      margin-bottom: 3.2rem;
+    }
+    ul {
+      margin-bottom: 5.6rem;
+    }
+  `;
+
   return (
     <div className={className}>
       <TaskImg>
@@ -46,6 +63,20 @@ const TaskComponent = ({
         <IconLabel icon={<Clock />} label={deadline} />
         <AvatarList imgList={colaborators} />
       </Wrap>
+      {details && (
+        <Details>
+          <Hr />
+          <List
+            taskList={taskList}
+            title={listHeading}
+            category={category}
+            number
+          />
+          <Btn handleClick={() => handleClick()} fontSize="1.4rem">
+            Go To Detail
+          </Btn>
+        </Details>
+      )}
     </div>
   );
 };
@@ -59,5 +90,19 @@ export const Task = styled(TaskComponent)`
   > :not(:last-child) {
     ${(props) =>
       props.big ? "margin-bottom: 2rem;" : "margin-bottom: 1.6rem;"};
+  }
+
+  button {
+    width: 100%;
+    justify-content: center;
+    &,
+    &:hover {
+      padding: 1.2rem;
+    }
+    &:focus,
+    &:active,
+    &:focus:hover {
+      padding: 1.1rem;
+    }
   }
 `;

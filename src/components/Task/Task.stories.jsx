@@ -1,3 +1,4 @@
+import { action } from "@storybook/addon-actions";
 import React from "react";
 import { Task } from ".";
 import { StoryTemplate } from "../../Helpers/StoryTemplate";
@@ -33,4 +34,11 @@ Default.args = {
   small: true,
   big: false,
   details: false,
+  listHeading: "Detail Task",
+  taskList: [
+    "Understanding the tools in Figma",
+    "Understand the basics of making designs",
+    "Design a mobile application with figma",
+  ],
+  handleClick: action("onClick"),
 };
