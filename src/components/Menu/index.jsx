@@ -1,32 +1,69 @@
 import React from "react";
-import { BookOpen, MessageCircle, Settings, User } from "react-feather";
+import { useState } from "react";
 import styled from "styled-components";
-import { IconLabel } from "../IconLabel";
-import Overview from "./../../icons/overview.svg";
+import { H3 } from "../Headings";
 
-const Logo = styled.div`
-  p {
-    font-weight: 600;
-    font-size: 3.2rem;
-    line-height: 4.8rem;
-  }
-`;
-const MenuComponent = ({ className }) => {
+const MenuItemComponent = ({ className, title, icon, href, ...rest }) => {
+  console.log(rest);
+  return (
+    <div className={className} href={href} {...rest}>
+      {icon}
+      <H3>{title}</H3>
+    </div>
+  );
+};
+
+const MenuComponent = ({ className, children }) => {
+  const [active, setActive] = useState(0);
+
   return (
     <div className={className}>
-      <Logo>
-        <IconLabel label="Nuegas" />
-      </Logo>
-      <IconLabel label="Overview" icon={<Overview />} />
-      <IconLabel label="Task" icon={<BookOpen />} />
-      <IconLabel label="Mentors" icon={<User />} />
-      <IconLabel label="Message" icon={<MessageCircle />} />
-      <IconLabel label="Settings" icon={<Settings />} />
+      {/* {React.Children.map(children, (child, index) => {
+        console.log(child, index);
+        return child; */}
+
+      {React.Children.map(children, (child, index) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, {
+            active: index === active,
+            onClick: () => {
+              setActive(index);
+            },
+          });
+        }
+        return child;
+      })}
     </div>
   );
 };
 
 export const Menu = styled(MenuComponent)`
-  background-color: ${(props) => props.theme.white};
-  max-width: 25.2rem;
+  :not(:last-child) {
+    margin-bottom: 2.4rem;
+  }
+`;
+
+export const MenuItem = styled(MenuItemComponent)`
+  max-width: 18.8rem;
+  border-radius: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 1rem 2rem;
+  background-color: ${(props) => props.active && props.theme.light500};
+
+  :hover {
+    cursor: pointer;
+  }
+  :not(:last-child) {
+    margin-bottom: 2rem;
+  }
+  h3 {
+    color: ${(props) =>
+      props.active ? props.theme.textDark800 : props.theme.textDark300};
+  }
+  svg {
+    margin-right: 1.2rem;
+    stroke: ${(props) =>
+      props.active ? props.theme.textDark800 : props.theme.textDark300};
+  }
 `;

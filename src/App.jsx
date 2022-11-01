@@ -13,6 +13,7 @@ import { RadioInput } from "./components/Radioinput";
 import { Dropdown } from "./components/Dropdown";
 import { useState } from "react";
 import { Progress } from "./components/Progress";
+import { Card } from "./components/Card";
 
 function App() {
   const [language, setLanguage] = useState("English");
@@ -58,6 +59,11 @@ function App() {
           changeSelectedOption={setLanguage}
         />
         <Progress max="10" value="7" title></Progress>
+        <Card
+          heading="test test"
+          content="tttttttttttttttttttttt ttttttttt tttttt"
+          btnText="buttoooon"
+        />
       </ThemeProvider>
     </div>
   );

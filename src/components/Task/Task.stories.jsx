@@ -1,7 +1,7 @@
 import { action } from "@storybook/addon-actions";
 import React from "react";
 import { Task } from ".";
-import { StoryTemplate } from "../../Helpers/StoryTemplate";
+import { StoryTemplate } from "../../helpers/StoryTemplate";
 
 export default {
   title: "Task",

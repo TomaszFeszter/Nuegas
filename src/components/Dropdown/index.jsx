@@ -1,73 +1,80 @@
 import React, { useState } from "react";
-import { ChevronDown } from "react-feather";
 import styled from "styled-components";
-import { P2 } from "../Parahraphs";
-import { Wrapper } from "../Wrapper";
 
-const Rotate = styled.span`
-  transition: transform 0.3s;
-  transform: ${(props) =>
-    props.isActive ? `rotate(${props.deg}deg)` : "none"};
-`;
+const DropdownOpenComponent = ({ className, children, onClick }) => {
+  return (
+    <div className={className} onClick={onClick}>
+      {React.Children.map(children, (child) => {
+        return React.cloneElement(child, {
+          onClick: () => {
+            if (child.props.onClick) child.props.onClick();
+          },
+        });
+      })}
+    </div>
+  );
+};
 
-const DropdownComponent = ({
-  className,
-  options,
-  changeSelectedOption,
-  selectedOption,
-}) => {
-  const [dropdownActive, setDropdownActive] = useState(false);
+const DropdownContentComponent = ({ className, children }) => {
+  return (
+    <div className={className}>
+      {React.Children.map(children, (child) => {
+        return child;
+      })}
+    </div>
+  );
+};
+
+const DropdownComponent = ({ className, children }) => {
+  const [active, setActive] = useState(false);
 
   const handleClick = () => {
-    setDropdownActive(!dropdownActive);
+    setActive(!active);
   };
   return (
-    <Wrapper className={className}>
-      <div onClick={handleClick}>
-        <P2 lHeight="1.8rem">{selectedOption}</P2>
-        <Rotate isActive={dropdownActive} deg="180">
-          <ChevronDown size={20} />
-        </Rotate>
-      </div>
-      {dropdownActive && (
-        <ul>
-          {options.map((option) => (
-            <li
-              onClick={() => {
-                handleClick();
-                changeSelectedOption(option);
-              }}
-              key={option}
-            >
-              <P2 lHeight="1.8rem">{option}</P2>
-            </li>
-          ))}
-        </ul>
-      )}
-    </Wrapper>
+    <div className={className}>
+      {React.Children.map(children, (child) => {
+        if (React.isValidElement(child)) {
+          return React.cloneElement(child, {
+            onClick: () => {
+              handleClick();
+              if (child.props.onClick) child.props.onClick();
+            },
+            active,
+          });
+        }
+        return child;
+      })}
+    </div>
+    // <Wrapper className={className}>
+    //   <div onClick={handleClick}>{activatingItem}</div>
+    //   {dropdownActive && (
+    //     <ul>
+    //       {options.map((option) => (
+    //         <li
+    //           onClick={() => {
+    //             handleClick();
+    //             option.function();
+    //           }}
+    //           key={option.name}
+    //         >
+    //           <P2 lHeight="1.8rem">{option.name}</P2>
+    //         </li>
+    //       ))}
+    //     </ul>
+    //   )}
+    // </Wrapper>
   );
 };
 
 export const Dropdown = styled(DropdownComponent)`
-  div {
-    max-width: ${(props) => props.width || "25rem"};
-    border: ${(props) => `1px solid ${props.theme.light900}`};
-    border-radius: 1rem;
-    background-color: ${(props) => props.theme.white};
-    padding: 1.5rem 2rem;
-    font-family: "Plus Jakarta Sans", sans-serif;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-    align-items: center;
-  }
-
-  div:hover,
+  /* div:hover,
   ul:hover {
     cursor: pointer;
   }
 
   ul {
+    background-color: ${(props) => props.theme.white};
     max-width: ${(props) => props.width || "25rem"};
     border: ${(props) => `1px solid ${props.theme.light900}`};
     border-top: none;
@@ -83,5 +90,9 @@ export const Dropdown = styled(DropdownComponent)`
         background-color: ${(props) => props.theme.blue200};
       }
     }
-  }
+  } */
+`;
+export const DropdownOpen = styled(DropdownOpenComponent)``;
+export const DropdownContent = styled(DropdownContentComponent)`
+  ${(props) => !props.active && "display: none;"}
 `;

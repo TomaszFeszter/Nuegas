@@ -1,6 +1,6 @@
 import { MyChart } from ".";
 import React from "react";
-import { StoryTemplate } from "../../Helpers/StoryTemplate";
+import { StoryTemplate } from "../../helpers/StoryTemplate";
 
 export default {
   title: "MyChart",
@@ -14,5 +14,5 @@ export default {
   ],
 };
 
-export const Defalult = (args) => <MyChart {...args} />;
-Defalult.args = {};
+export const Default = (args) => <MyChart {...args} />;
+Default.args = {};

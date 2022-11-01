@@ -12,6 +12,7 @@ export const Input = styled(InputComponent)`
   background-color: ${(props) => props.theme.white};
   padding: 1.5rem 2rem;
   font-family: "Plus Jakarta Sans", sans-serif;
+  position: relative;
 
   &::placeholder {
     color: ${(props) => props.theme.textDark300};

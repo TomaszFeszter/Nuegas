@@ -1,8 +1,17 @@
 import React from "react";
 import styled from "styled-components";
 
-const AvatarComponent = ({ className, src }) => {
-  return <img className={className} src={src} width="52" height="52" alt="" />;
+const AvatarComponent = ({ className, src, ...rest }) => {
+  return (
+    <img
+      className={className}
+      src={src}
+      width="52"
+      height="52"
+      alt=""
+      {...rest}
+    />
+  );
 };
 
 export const Avatar = styled(AvatarComponent)`

@@ -1,7 +1,7 @@
 import Calendar from "react-calendar";
 import styled from "styled-components";
 import React from "react";
-import { weekDays } from "../../Helpers/getWeekDays";
+import { weekDays } from "../../helpers/getWeekDays";
 
 const CalendarComponent = ({ className }) => {
   return (

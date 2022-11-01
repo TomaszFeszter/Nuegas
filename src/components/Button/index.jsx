@@ -37,6 +37,7 @@ export const Btn = styled(BtnComponent)`
   font-weight: ${(props) => props.fontWeight || 600};
   font-size: ${(props) => props.fontSize || "1.2rem"};
   line-height: ${(props) => props.lineHeight || "1.9rem"};
+  ${(props) => props.long && "width: 100%;"}
 
   color: ${(props) =>
     props.secondary ? props.theme.textDark500 : props.theme.textWhite};

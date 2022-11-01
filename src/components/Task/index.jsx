@@ -9,6 +9,31 @@ import { List } from "../List";
 import { P1, P2 } from "../Parahraphs";
 import { Progress } from "../Progress";
 
+const TaskImg = styled.figure`
+  border-radius: 1.5rem;
+  overflow: hidden;
+  ${(props) => (props.big ? "max-height: 16rem;" : "max-height: 11rem;")};
+  img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+`;
+
+const Wrap = styled.div`
+  display: flex;
+  justify-content: space-between;
+`;
+
+const Details = styled.div`
+  padding-top: 0.8rem;
+  hr {
+    margin-bottom: 3.2rem;
+  }
+  ul {
+    margin-bottom: 5.6rem;
+  }
+`;
 const TaskComponent = ({
   className,
   src,
@@ -23,32 +48,6 @@ const TaskComponent = ({
   listHeading,
   handleClick,
 }) => {
-  const TaskImg = styled.figure`
-    border-radius: 1.5rem;
-    overflow: hidden;
-    ${(props) => (props.big ? "max-height: 16rem;" : "max-height: 11rem;")};
-    img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-    }
-  `;
-
-  const Wrap = styled.div`
-    display: flex;
-    justify-content: space-between;
-  `;
-
-  const Details = styled.div`
-    padding-top: 0.8rem;
-    hr {
-      margin-bottom: 3.2rem;
-    }
-    ul {
-      margin-bottom: 5.6rem;
-    }
-  `;
-
   return (
     <div className={className}>
       <TaskImg>

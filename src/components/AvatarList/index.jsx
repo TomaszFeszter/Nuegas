@@ -31,7 +31,7 @@ export const AvatarList = styled(AvatarListComponent)`
       img:nth-child(${6 - i}) {
         z-index: ${6 - i};
         transform: translate(${1.6 * (6 - i)}rem, -50%);
-  }
+        }
       `;
     }
 

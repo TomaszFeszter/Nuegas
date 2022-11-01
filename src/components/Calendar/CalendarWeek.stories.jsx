@@ -1,6 +1,6 @@
 import { AppCalendar } from ".";
 import React from "react";
-import { StoryTemplate } from "../../Helpers/StoryTemplate";
+import { StoryTemplate } from "../../helpers/StoryTemplate";
 
 export default {
   title: "Calendar",
