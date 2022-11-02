@@ -1,0 +1,38 @@
+{
+  "title": "Login",
+  "type": "object",
+  "properties": {
+    "login": {
+      "title": "Login",
+      "type": "text",
+      "placeholder": "Enter Login"
+    },
+    "password": {
+      "title": "Password",
+      "type": "password",
+      "placeholder": "Enter Password"
+    },
+    "button": {
+      "content": "Submit",
+      "type": "submit"
+    }
+  },
+  "dependencies": {},
+  "if": {
+    "properties": {
+      "login": {
+        "const": "test"
+      }
+    }
+  },
+  "then": {
+    "title": "teest",
+    "properties": {
+      "login": {
+        "title": "changed title"
+      }
+    }
+  },
+  "else": {},
+  "required": ["login", "password"]
+}

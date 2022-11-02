@@ -3,21 +3,40 @@ import styled from "styled-components";
 import { H3 } from "../Headings";
 const SmallListItemComponent = ({ className, title, href, ...rest }) => {
   return (
-    <div className={className} href={href} {...rest}>
+    <li className={className} href={href} {...rest}>
       <H3>{title}</H3>
-    </div>
+    </li>
   );
 };
 
 const SmallListComponent = ({ className, children }) => {
   return (
-    <div className={className}>
+    <ul className={className}>
       {React.Children.map(children, (child) => {
         return child;
       })}
-    </div>
+    </ul>
   );
 };
 
-export const SmallListItem = styled(SmallListItemComponent)``;
-export const SmallList = styled(SmallListComponent)``;
+export const SmallListItem = styled(SmallListItemComponent)`
+  padding: 1.5rem 2rem;
+  background-color: ${(props) => props.theme.white};
+  font-family: "Plus Jakarta Sans", sans-serif;
+  border-radius: 1rem;
+
+  &:hover {
+    background-color: ${(props) => props.theme.blue200};
+  }
+`;
+export const SmallList = styled(SmallListComponent)`
+  :hover {
+    cursor: pointer;
+  }
+
+  background-color: ${(props) => props.theme.white};
+  max-width: ${(props) => props.width || "15rem"};
+  border: ${(props) => `1px solid ${props.theme.light900}`};
+  border-top: none;
+  border-radius: 1rem;
+`;

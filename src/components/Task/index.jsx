@@ -66,7 +66,7 @@ const TaskComponent = ({
         <Details>
           <Hr />
           <List
-            taskList={taskList}
+            items={taskList}
             title={listHeading}
             category={category}
             number
