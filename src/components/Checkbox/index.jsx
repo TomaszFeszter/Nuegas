@@ -16,13 +16,13 @@ export const Checkbox = styled(CheckboxComponent)`
   position: absolute;
 
   &::before {
-    font-size: 2rem;
+    font-size: 1.2rem;
     line-height: 2.4rem;
     text-align: center;
     content: "✖";
     display: block;
-    height: 2.4rem;
-    width: 2.4rem;
+    height: 2.2rem;
+    width: 2.2rem;
     border: ${(props) => `1px solid ${props.theme.light900}`};
     border-radius: 1.2rem;
     background-color: ${(props) => props.theme.white};

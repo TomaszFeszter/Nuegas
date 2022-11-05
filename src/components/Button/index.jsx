@@ -18,7 +18,8 @@ const BtnComponent = ({
 export const Btn = styled(BtnComponent)`
   display: flex;
   align-items: center;
-  min-height: 2.9rem;
+  min-height: ${(props) =>
+    props.medium ? "3.7rem" : props.big ? "5.2rem" : "2.9rem"};
   padding: ${(props) =>
     props.children
       ? props.secondary

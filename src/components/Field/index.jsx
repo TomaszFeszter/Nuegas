@@ -39,6 +39,7 @@ export const Field = styled(FieldComponent)`
   label {
     ${(props) => props.icon && "padding-left: 0.8rem;"};
     ${(props) => props.switch && "padding-left: 8rem;"};
+    ${(props) => props.checkbox && "padding-left: 3.4rem;"};
     ${(props) => props.input && "padding-bottom: 2rem;"};
   }
 `;

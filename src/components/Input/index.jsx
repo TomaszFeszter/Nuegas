@@ -1,8 +1,15 @@
 import React from "react";
+import { useState } from "react";
 import styled from "styled-components";
 
-const InputComponent = ({ type, ...rest }) => {
-  return <input type={type} {...rest} />;
+const InputComponent = ({ type, handleChange, ...rest }) => {
+  const [value, setValue] = useState("");
+
+  const onChange = (e) => {
+    setValue(e.target.value);
+    handleChange && handleChange(e);
+  };
+  return <input type={type} value={value} onChange={onChange} {...rest} />;
 };
 
 export const Input = styled(InputComponent)`

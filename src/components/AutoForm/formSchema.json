@@ -1,7 +1,7 @@
 {
-  "title": "Login",
+  "title": "Login Form",
   "type": "object",
-  "properties": {
+  "fields": {
     "login": {
       "title": "Login",
       "type": "text",
@@ -12,14 +12,28 @@
       "type": "password",
       "placeholder": "Enter Password"
     },
+    "select": {
+      "type": "select",
+      "title": "select something",
+      "config": {
+        "options": ["English", "German", "French"],
+        "selectedOption": "English"
+      }
+    },
+    "checkbox": {
+      "type": "checkbox",
+      "id": "checkbox",
+      "title": "check me"
+    },
     "button": {
       "content": "Submit",
-      "type": "submit"
+      "type": "submit",
+      "title": "submit",
+      "config": {}
     }
   },
-  "dependencies": {},
   "if": {
-    "properties": {
+    "fields": {
       "login": {
         "const": "test"
       }
@@ -27,7 +41,7 @@
   },
   "then": {
     "title": "teest",
-    "properties": {
+    "fields": {
       "login": {
         "title": "changed title"
       }

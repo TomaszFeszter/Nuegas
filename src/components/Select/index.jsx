@@ -15,6 +15,7 @@ const SelectComponent = ({
   options,
   changeSelectedOption,
   selectedOption,
+  ...rest
 }) => {
   const [selectActive, setSelectActive] = useState(false);
 
@@ -24,6 +25,7 @@ const SelectComponent = ({
   return (
     <Wrapper className={className}>
       <div onClick={handleClick}>
+        <input type="hidden" value={selectedOption} {...rest} />
         <P2 lHeight="1.8rem">{selectedOption}</P2>
         <Rotate isActive={selectActive} deg="180">
           <ChevronDown size={20} />
@@ -49,8 +51,10 @@ const SelectComponent = ({
 };
 
 export const Select = styled(SelectComponent)`
+  position: relative;
+  max-width: ${(props) => props.width || "25rem"};
   div {
-    max-width: ${(props) => props.width || "25rem"};
+    width: 100%;
     border: ${(props) => `1px solid ${props.theme.light900}`};
     border-radius: 1rem;
     background-color: ${(props) => props.theme.white};
@@ -68,6 +72,9 @@ export const Select = styled(SelectComponent)`
   }
 
   ul {
+    position: absolute;
+    z-index: 1;
+    width: 100%;
     background-color: ${(props) => props.theme.white};
     max-width: ${(props) => props.width || "25rem"};
     border: ${(props) => `1px solid ${props.theme.light900}`};
