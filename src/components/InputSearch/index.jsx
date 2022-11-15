@@ -32,16 +32,19 @@ export const InputSearch = styled(InputSearchComponent)`
       display: none;
     }
 
+    svg {
+      stroke: ${(props) => props.theme.light900};
+    }
+
     &::placeholder {
       color: ${(props) => props.theme.textDark300};
     }
 
     &:focus {
       outline-color: ${(props) => props.theme.blue500};
-    }
-
-    &:not(:placeholder-shown) + svg {
-      stroke: ${(props) => props.theme.textDark500};
+      &:not(:placeholder-shown) + svg {
+        stroke: ${(props) => props.theme.textDark500};
+      }
     }
 
     &:invalid:not(:placeholder-shown) {

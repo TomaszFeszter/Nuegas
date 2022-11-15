@@ -37,6 +37,5 @@ export const SmallList = styled(SmallListComponent)`
   background-color: ${(props) => props.theme.white};
   max-width: ${(props) => props.width || "15rem"};
   border: ${(props) => `1px solid ${props.theme.light900}`};
-  border-top: none;
   border-radius: 1rem;
 `;

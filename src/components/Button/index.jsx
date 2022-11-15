@@ -5,10 +5,10 @@ const BtnComponent = ({
   className,
   leftIcon,
   rightIcon,
-  handleClick,
+  onClick,
   children,
 }) => (
-  <button onClick={handleClick} className={className}>
+  <button onClick={onClick} className={className}>
     {leftIcon && leftIcon}
     {children && <span>{children}</span>}
     {rightIcon && rightIcon}

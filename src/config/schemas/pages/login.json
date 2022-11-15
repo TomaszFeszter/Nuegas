@@ -1,0 +1,26 @@
+{
+  "title": "login:title",
+  "fields": {
+    "email": {
+      "type": "email",
+      "title": "login:fields:email:title",
+      "placeholder": "login:fields:email:placeholder",
+      "required": true
+    },
+    "password": {
+      "type": "password",
+      "title": "login:fields:password:title",
+      "placeholder": "login:fields:password:placeholder",
+      "required": true
+    },
+    "checkbox": {
+      "type": "checkbox",
+      "id": "checkbox",
+      "title": "login:fields:checkbox:title"
+    },
+    "button": {
+      "type": "submit",
+      "title": "login:fields:button:title"
+    }
+  }
+}

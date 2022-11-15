@@ -1,0 +1,23 @@
+{
+  "title": "Login to your account",
+  "fields": {
+    "email": {
+      "title": "Email",
+      "placeholder": "Enter your email"
+    },
+    "password": {
+      "title": "Password",
+      "placeholder": "Enter your password"
+    },
+    "checkbox": {
+      "title": "Stay logged in"
+    },
+    "button": {
+      "title": "Log In"
+    }
+  },
+  "link": {
+    "password": "Forgot password?",
+    "register": "Create an account"
+  }
+}

@@ -1,70 +1,85 @@
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import React from "react";
 import { ThemeProvider } from "styled-components";
-import { Btn } from "./components/Button";
-import { H1, H2, H3 } from "./components/Headings";
-import { P1, P2 } from "./components/Parahraphs";
+import { LoginPage } from "./screens/Login";
+import { OverviewPage } from "./screens/Overview";
+import { RegisterPage } from "./screens/Register";
+import { Route, Routes } from "react-router";
+import { PrivateRoute } from "./features/PrivateRoute";
 import { GlobalStyle } from "./styles/globalStyles";
 import { lightTheme } from "./themes";
-import { ArrowDown } from "react-feather";
-import { Switch } from "./components/Switch";
-import { Field } from "./components/Field";
-import { Input } from "./components/Input";
-import { RadioInput } from "./components/Radioinput";
-import { Dropdown } from "./components/Dropdown";
-import { useState } from "react";
-import { Progress } from "./components/Progress";
-import { Card } from "./components/Card";
+import { TasksPage } from "./screens/Tasks";
+import { TeamsPage } from "./screens/Teams";
+import { BoardsPage } from "./screens/Boards";
+
+const queryClient = new QueryClient();
 
 function App() {
-  const [language, setLanguage] = useState("English");
   return (
     <div className="App">
-      <ThemeProvider theme={lightTheme}>
-        <GlobalStyle />
-
-        <H1 /*lineHeight={"2.4rem"}*/>test h1</H1>
-        <H2 /*fontSize={"1.4rem"}*/>test h2</H2>
-        <H3 /*fontWeight={"700"}*/>test h3</H3>
-        <P1 /*lineHeight={"2.4rem"}*/>test p1</P1>
-        <P2 /*fontSize={"1.4rem"}*/>test p2</P2>
-        <Btn leftIcon={<ArrowDown />}></Btn>
-        <Btn leftIcon={<ArrowDown />} secondary></Btn>
-        <Btn>Button</Btn>
-        <Btn secondary>Button</Btn>
-        <Btn leftIcon={<ArrowDown />}>Button</Btn>
-        <Btn rightIcon={<ArrowDown />} secondary>
-          Button
-        </Btn>
-        <Field
-          switch
-          id="testCheckbox"
-          label="checkbox label"
-          padding="0.45rem 0"
-        >
-          <Switch id="testCheckbox" />
-        </Field>
-        <Field id="inputText" label="Type something" input>
-          <Input type="email" id="inputText" placeholder="email" />
-        </Field>
-        <RadioInput
-          id="test"
-          name="testName"
-          values={["marek", "wawrzyn", "baltazar"]}
-          label="Choose Name"
-          padding="1rem 0"
-        />
-        <Dropdown
-          options={["English", "German", "French"]}
-          selectedOption={language}
-          changeSelectedOption={setLanguage}
-        />
-        <Progress max="10" value="7" title></Progress>
-        <Card
-          heading="test test"
-          content="tttttttttttttttttttttt ttttttttt tttttt"
-          btnText="buttoooon"
-        />
-      </ThemeProvider>
+      <QueryClientProvider client={queryClient}>
+        <ThemeProvider theme={lightTheme}>
+          <GlobalStyle />
+          <Routes>
+            <Route
+              path="/login"
+              element={
+                <PrivateRoute mustBeAuthorized={false} redirectTo="/">
+                  <LoginPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/register"
+              element={
+                <PrivateRoute mustBeAuthorized={false} redirectTo="/">
+                  <RegisterPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/"
+              element={
+                <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
+                  <OverviewPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/task"
+              element={
+                <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
+                  <TasksPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/teams"
+              element={
+                <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
+                  <TeamsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/boards"
+              element={
+                <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
+                  <BoardsPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/settings"
+              element={
+                <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
+                  <OverviewPage />
+                </PrivateRoute>
+              }
+            />
+          </Routes>
+        </ThemeProvider>
+      </QueryClientProvider>
     </div>
   );
 }

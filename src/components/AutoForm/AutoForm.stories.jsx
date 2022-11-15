@@ -20,4 +20,7 @@ export const Defalult = (args) => <AutoForm {...args} />;
 Defalult.args = {
   schema: schema,
   onSubmit: action("onSubmit"),
+  initialValues: {
+    login: "test",
+  },
 };

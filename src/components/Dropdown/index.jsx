@@ -49,8 +49,19 @@ const DropdownComponent = ({ className, children }) => {
   );
 };
 
-export const Dropdown = styled(DropdownComponent)``;
+export const Dropdown = styled(DropdownComponent)`
+  position: relative;
+  display: flex;
+  align-items: center;
+`;
 export const DropdownOpen = styled(DropdownOpenComponent)``;
 export const DropdownContent = styled(DropdownContentComponent)`
   ${(props) => !props.active && "display: none;"}
+  min-width: 13.4rem;
+  z-index: 99;
+  position: absolute;
+  top: 100%;
+  right: 0;
+  @media screen and (min-width: 1441px) {
+  }
 `;

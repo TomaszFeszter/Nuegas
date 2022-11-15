@@ -20,7 +20,6 @@ export const SliderComponent = ({ className, children }) => {
 };
 
 export const Slider = styled(SliderComponent)`
-  max-width: 70rem;
   overflow: hidden;
   position: relative;
   ${(props) =>

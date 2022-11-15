@@ -1,0 +1,21 @@
+{
+  "new": {
+    "title": "Create new task",
+    "create": {
+      "title": {
+        "title": "Task title",
+        "placeholder": "Enter task title"
+      },
+      "description": {
+        "title": "Task description",
+        "placeholder": "Enter task description"
+      },
+      "deadline": {
+        "title": "Task deadline"
+      },
+      "button": {
+        "title": "Create task"
+      }
+    }
+  }
+}

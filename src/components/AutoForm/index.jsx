@@ -1,7 +1,12 @@
+import { get, merge, set } from "lodash/fp";
 import React from "react";
 import { useState } from "react";
-import { useEffect } from "react";
+import { useMemo } from "react";
+import { useCallback } from "react";
 import { useRef } from "react";
+import { useTranslation } from "react-i18next";
+import styled from "styled-components";
+import i18n from "../../i18n";
 import { Btn } from "../Button";
 import { Checkbox } from "../Checkbox";
 import { Field } from "../Field";
@@ -10,54 +15,129 @@ import { Input } from "../Input";
 import { RadioInput } from "../Radioinput";
 import { Select } from "../Select";
 import { Switch } from "../Switch";
-export const AutoForm = ({ children, schema, onSubmit }) => {
-  const [currentSchema, setCurrentSchema] = useState(schema);
-  const [newSchema, setNewSchema] = useState({});
-  const [fulfieldConditions, setFulfieldConditions] = useState({ fields: {} });
+
+const Group = styled.div`
+  display: flex;
+  div:not(:last-child) {
+    margin-right: 2rem;
+  }
+`;
+
+function renderSwitch(
+  [key, { type, id, title, placeholder, fields, ...rest }],
+  onChange,
+  formValues = {}
+) {
+  rest.value = get(key, formValues);
+  switch (type) {
+    case "group":
+      return (
+        <Group>
+          {Object.entries(fields).map(([itemKey, item]) =>
+            renderSwitch([`${key}.${itemKey}`, item], onChange, formValues)
+          )}
+        </Group>
+      );
+    case "text":
+    case "email":
+    case "password":
+      return (
+        <Field input label={i18n.t(title)} id={id}>
+          <Input
+            type={type}
+            id={id}
+            name={key}
+            placeholder={i18n.t(placeholder)}
+            onChange={(e) => onChange(key, e.target.value)}
+            {...rest}
+          />
+        </Field>
+      );
+    case "radio":
+      return (
+        <RadioInput
+          label={i18n.t(placeholder)}
+          name={key}
+          id={id}
+          onChange={(e) => onChange(key, e.target.value)}
+          {...rest}
+        />
+      );
+    case "checkbox":
+      return (
+        <Field checkbox id={id} label={i18n.t(title)} lHeight="2.4rem">
+          <Checkbox
+            id={id}
+            name={key}
+            onChange={(e) => onChange(key, e.target.checked)}
+            {...rest}
+          />
+        </Field>
+      );
+    case "select":
+      return (
+        <Field input id={id} label={i18n.t(title)} lHeight="2.4rem">
+          <Select
+            onChange={(e) => onChange(key, e.target.value)}
+            id={id}
+            name={key}
+            {...rest}
+          />
+        </Field>
+      );
+    case "switch":
+      return (
+        <Field switch id={id} label={i18n.t(title)} lHeight="3rem">
+          <Switch
+            id={id}
+            name={key}
+            onChange={(e) => onChange(key, e.target.value)}
+            {...rest}
+          />
+        </Field>
+      );
+    case "submit":
+      return (
+        <Btn name={key} medium type={type} {...rest}>
+          {i18n.t(title)}
+        </Btn>
+      );
+    case "list":
+      return (
+        <div>
+          <input type="hidden" value={formValues[key]} />
+
+          <Btn name={key} medium type={type} {...rest}>
+            {i18n.t(title)}
+          </Btn>
+        </div>
+      );
+    default:
+      return (
+        <Field input label={i18n.t(title)} id={id}>
+          <Input
+            type={type}
+            name={key}
+            id={id}
+            onChange={(e) => onChange(key, e.target.value)}
+            {...rest}
+          />
+        </Field>
+      );
+  }
+}
+
+const AutoFormComponent = ({
+  className,
+  children,
+  schema,
+  onSubmit,
+  translationKey = "",
+  initialValues = {},
+}) => {
+  const { t } = useTranslation(translationKey);
   const formRef = useRef();
-
-  useEffect(() => {
-    Object.entries(schema.then).map(([key, value]) => {
-      if (typeof value !== "object") setNewSchema((newSchema[key] = value));
-    });
-    console.log(newSchema);
-  }, []);
-
-  useEffect(() => {
-    // Object.entries(schema.if.fields).map(([key, value]) => {
-    //   if (key in fulfieldConditions.fields) {
-    //     if (typeof value === "object") {
-    //       Object.entries(value).map(([fieldKey, fieldValue]) => {
-    //         if (fieldKey in fulfieldConditions.fields[key]) {
-    //           if (fieldValue !== fulfieldConditions.fields[key][fieldKey])
-    //             return;
-    //         }
-    //       });
-    //     }
-    //   } else return;
-    //   setCurrentSchema(newSchema);
-    // });
-
-    schema.if === fulfieldConditions
-      ? setCurrentSchema(newSchema)
-      : console.log("twoja stara schema");
-  }, [fulfieldConditions]);
-
-  const handleChange = (e) => {
-    // console.log(Object.entries(schema.then));
-    // console.log(Object.entries(schema));
-
-    if ("if" in schema && e.target.name in schema.if.fields) {
-      if (e.target.value === schema.if.fields[e.target.name].const) {
-        setFulfieldConditions(
-          (fulfieldConditions.fields[e.target.name] =
-            schema.if.fields[e.target.name])
-        );
-        console.log(fulfieldConditions);
-        console.log(schema.if);
-      }
-    }
-  };
+  const [formValues, setFormValues] = useState({ ...initialValues });
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -66,83 +146,41 @@ export const AutoForm = ({ children, schema, onSubmit }) => {
     onSubmit(formData);
   };
 
-  function renderSwitch([
-    key,
-    { type, id, title, placeholder, values, config },
-  ]) {
-    switch (type) {
-      case "text":
-      case "email":
-      case "password":
-        return (
-          <Field input label={title} id={id}>
-            <Input
-              type={type}
-              id={id}
-              name={key}
-              placeholder={placeholder}
-              handleChange={handleChange}
-            />
-          </Field>
-        );
-      case "radio":
-        return (
-          <RadioInput
-            label={title}
-            name={key}
-            values={values}
-            id={id}
-            onChange={handleChange}
-          />
-        );
-      case "checkbox":
-        return (
-          <Field checkbox id={id} label={title} lHeight="2.4rem">
-            <Checkbox id={id} name={key} onChange={handleChange} />
-          </Field>
-        );
-      case "select":
-        return (
-          <Field input id={id} label={title} lHeight="2.4rem">
-            <Select
-              options={config.options}
-              selectedOption={config.selectedOption}
-              changeSelectedOption={config.changeSelectedOption}
-              onChange={handleChange}
-              id={id}
-              name={key}
-            />
-          </Field>
-        );
-      case "switch":
-        return (
-          <Field switch id={id} label={title} lHeight="3rem">
-            <Switch id={id} name={key} onChange={handleChange} />
-          </Field>
-        );
-      case "submit":
-        return (
-          <Btn
-            name={key}
-            secondary={config.secondary ? config.secondary : false}
-            long={config.long ? config.long : false}
-            handleClick={config.handleClick}
-            medium
-            type={type}
-          >
-            {title}
-          </Btn>
-        );
-      default:
-        return <Input type={type} id={id} onChange={handleChange} />;
+  const handleChange = useCallback(
+    (key, val) => {
+      setFormValues(set(key, val, formValues));
+    },
+    [formValues, setFormValues]
+  );
+
+  const currentSchema = useMemo(() => {
+    const {
+      if: ifSchema,
+      else: elseSchema,
+      then: thenSchema,
+      ...rest
+    } = schema;
+    if (ifSchema && (elseSchema || thenSchema)) {
+      const fields = ifSchema.fields;
+      if (
+        Object.entries(fields).every(([key, field]) => {
+          return formValues[key] === field.value;
+        })
+      )
+        return merge(rest, thenSchema);
+      else return merge(rest, elseSchema);
     }
-  }
+
+    return rest;
+  }, [schema, formValues]);
 
   return schema ? (
-    <form onSubmit={handleSubmit} ref={formRef}>
-      {currentSchema.title && <H2>{currentSchema.title}</H2>}
+    <form className={className} onSubmit={handleSubmit} ref={formRef}>
+      {currentSchema.title && <H2>{t(currentSchema.title)}</H2>}
       {currentSchema.fields &&
-        Object.entries(currentSchema.fields).map(renderSwitch)}
+        Object.entries(currentSchema.fields).map((item) =>
+          renderSwitch(item, handleChange, formValues)
+        )}
     </form>
   ) : (
     <form onSubmit={handleSubmit} ref={formRef}>
@@ -150,3 +188,10 @@ export const AutoForm = ({ children, schema, onSubmit }) => {
     </form>
   );
 };
+
+export const AutoForm = styled(AutoFormComponent)`
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+  align-items: flex-start;
+`;

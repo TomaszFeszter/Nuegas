@@ -1,0 +1,60 @@
+{
+  "title": "register:title",
+  "fields": {
+    "firstGroup": {
+      "type": "group",
+      "fields": {
+        "firstName": {
+          "type": "text",
+          "title": "register:fields:firstName:title",
+          "placeholder": "register:fields:firstName:placeholder",
+          "required": true
+        },
+        "lastName": {
+          "type": "text",
+          "title": "register:fields:lastName:title",
+          "placeholder": "register:fields:lastName:placeholder",
+          "required": true
+        }
+      }
+    },
+    "secondGroup": {
+      "type": "group",
+      "fields": {
+        "email": {
+          "type": "email",
+          "title": "register:fields:email:title",
+          "placeholder": "register:fields:email:placeholder",
+          "required": true
+        },
+        "birthDate": {
+          "type": "date",
+          "title": "register:fields:birthDate:title",
+          "required": true
+        }
+      }
+    },
+    "thirdGroup": {
+      "type": "group",
+      "fields": {
+        "password": {
+          "type": "password",
+          "title": "register:fields:password:title",
+          "placeholder": "register:fields:password:placeholder",
+          "required": true
+        },
+        "confirmPassword": {
+          "type": "password",
+          "id": "confirmPassword",
+          "title": "register:fields:confirmPassword:title",
+          "placeholder": "register:fields:confirmPassword:placeholder"
+        }
+      }
+    },
+
+    "button": {
+      "type": "submit",
+      "title": "register:fields:button:title"
+    }
+  }
+}

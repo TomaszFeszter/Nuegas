@@ -24,7 +24,8 @@ const teamsArr = range(5, () => ({
 
 const tasksArr = range(15, () => ({
   id: faker.datatype.uuid(),
-  title: faker.lorem.sentence(randomIntNoZero(10)),
+  title: faker.lorem.sentence(randomIntNoZero(5)),
+  src: faker.image.business(330, 170, true),
   description: faker.lorem.lines(2),
   createdBy: usersArr[random(19)],
   deadline: faker.date.soon(30),
@@ -32,6 +33,7 @@ const tasksArr = range(15, () => ({
     title: faker.lorem.sentence(randomIntNoZero(8)),
     complete: faker.datatype.boolean(),
   })),
+  colaborators: getRandomUniqueArrValues(randomIntNoZero(8), usersArr),
   isActive: faker.datatype.boolean(),
 }));
 

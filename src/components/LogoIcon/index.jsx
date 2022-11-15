@@ -4,7 +4,7 @@ import styled from "styled-components";
 const LogoIconComponent = ({ className }) => {
   return (
     <div className={className}>
-      <BookOpen />;
+      <BookOpen />
     </div>
   );
 };

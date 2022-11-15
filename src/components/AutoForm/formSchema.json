@@ -1,41 +1,42 @@
 {
-  "title": "Login Form",
-  "type": "object",
+  "title": "title",
   "fields": {
     "login": {
-      "title": "Login",
+      "title": "title",
       "type": "text",
+      "id": "login",
       "placeholder": "Enter Login"
     },
     "password": {
       "title": "Password",
       "type": "password",
+      "id": "password",
       "placeholder": "Enter Password"
     },
     "select": {
       "type": "select",
       "title": "select something",
-      "config": {
-        "options": ["English", "German", "French"],
-        "selectedOption": "English"
-      }
+      "options": ["English", "German", "French"],
+      "selectedOption": "English"
     },
     "checkbox": {
       "type": "checkbox",
       "id": "checkbox",
-      "title": "check me"
+      "title": "check me",
+      "required": true
     },
     "button": {
-      "content": "Submit",
       "type": "submit",
-      "title": "submit",
-      "config": {}
+      "title": "submit"
     }
   },
   "if": {
     "fields": {
       "login": {
-        "const": "test"
+        "value": "test"
+      },
+      "checkbox": {
+        "value": true
       }
     }
   },
@@ -44,6 +45,12 @@
     "fields": {
       "login": {
         "title": "changed title"
+      },
+      "select": {
+        "type": "select",
+        "title": "Select your card",
+        "options": ["Pikachu", "Lapras", "Butterfly"],
+        "selectedOption": "Lapras"
       }
     }
   },

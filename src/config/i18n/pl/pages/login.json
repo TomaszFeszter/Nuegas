@@ -1,0 +1,19 @@
+{
+  "title": "Zaloguj się na swoje konto",
+  "fields": {
+    "email": {
+      "title": "Email",
+      "placeholder": "Wprowadź email"
+    },
+    "password": {
+      "title": "Hasło",
+      "placeholder": "Wprowadź hasło"
+    },
+    "checkbox": {
+      "title": "Pozostań zalogowany"
+    },
+    "button": {
+      "title": "Zaloguj się"
+    }
+  }
+}

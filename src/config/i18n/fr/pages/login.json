@@ -1,0 +1,19 @@
+{
+  "title": "Connectez-vous à votre compte",
+  "fields": {
+    "email": {
+      "title": "Email",
+      "placeholder": "Entrer votre Email"
+    },
+    "password": {
+      "title": "Mot de passe",
+      "placeholder": "Tapez votre mot de passe"
+    },
+    "checkbox": {
+      "title": "Rester connecté"
+    },
+    "button": {
+      "title": "Connexion"
+    }
+  }
+}

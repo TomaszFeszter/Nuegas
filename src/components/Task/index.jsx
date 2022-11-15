@@ -50,9 +50,11 @@ const TaskComponent = ({
 }) => {
   return (
     <div className={className}>
-      <TaskImg>
-        <img src={src} alt="" />
-      </TaskImg>
+      {src ? (
+        <TaskImg>
+          <img src={src} alt="" />
+        </TaskImg>
+      ) : null}
       <div>
         <P1 fontWeight="600">{title}</P1>
         <P2>{category}</P2>

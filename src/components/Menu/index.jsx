@@ -1,39 +1,31 @@
 import React from "react";
-import { useState } from "react";
+import { NavLink } from "react-router-dom";
 import styled from "styled-components";
 import { H3 } from "../Headings";
 
-const MenuItemComponent = ({ className, title, icon, href, ...rest }) => {
-  console.log(rest);
+const MenuItemComponent = ({ className, title, icon, path, ...rest }) => {
   return (
-    <div className={className} href={href} {...rest}>
+    <NavLink className={className} to={path} {...rest}>
       {icon}
       <H3>{title}</H3>
-    </div>
+    </NavLink>
   );
 };
 
 const MenuComponent = ({ className, children }) => {
-  const [active, setActive] = useState(0);
-
   return (
-    <div className={className}>
+    <nav className={className}>
       {/* {React.Children.map(children, (child, index) => {
         console.log(child, index);
         return child; */}
 
-      {React.Children.map(children, (child, index) => {
+      {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          return React.cloneElement(child, {
-            active: index === active,
-            onClick: () => {
-              setActive(index);
-            },
-          });
+          return React.cloneElement(child);
         }
         return child;
       })}
-    </div>
+    </nav>
   );
 };
 
@@ -49,7 +41,15 @@ export const MenuItem = styled(MenuItemComponent)`
   display: flex;
   align-items: center;
   padding: 1rem 2rem;
-  background-color: ${(props) => props.active && props.theme.light500};
+  &.active {
+    background-color: ${(props) => props.theme.light500};
+    h3 {
+      color: ${(props) => props.theme.textDark800};
+    }
+    svg {
+      stroke: ${(props) => props.theme.textDark800};
+    }
+  }
 
   :hover {
     cursor: pointer;
@@ -58,12 +58,10 @@ export const MenuItem = styled(MenuItemComponent)`
     margin-bottom: 2rem;
   }
   h3 {
-    color: ${(props) =>
-      props.active ? props.theme.textDark800 : props.theme.textDark300};
+    color: ${(props) => props.theme.textDark300};
   }
   svg {
     margin-right: 1.2rem;
-    stroke: ${(props) =>
-      props.active ? props.theme.textDark800 : props.theme.textDark300};
+    stroke: ${(props) => props.theme.textDark300};
   }
 `;

@@ -9,7 +9,7 @@ const ProgressComponent = ({ className, value, max, title, ...rest }) => {
         <title>
           <P1>Progress</P1>
           <P1 fontColor={(props) => props.theme.blue500}>
-            {(value / max) * 100}%
+            {Math.trunc((value / max) * 100)}%
           </P1>
         </title>
       )}
