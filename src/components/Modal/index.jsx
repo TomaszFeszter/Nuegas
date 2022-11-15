@@ -33,10 +33,10 @@ export const Modal = styled(ModalComponent)`
 
   & >div {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     justify-content: center;
-    width: 50%;
-    min-height: 6rem;
+    max-width: 50%;
+    max-height: 90%;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
@@ -44,5 +44,6 @@ export const Modal = styled(ModalComponent)`
     background: ${(props) => `${props.theme.white}`};
     border-radius: 1rem;
     padding: 2.4rem;
+    overflow: auto;
   }
 `;

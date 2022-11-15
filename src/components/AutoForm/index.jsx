@@ -7,6 +7,7 @@ import { useRef } from "react";
 import { useTranslation } from "react-i18next";
 import styled from "styled-components";
 import i18n from "../../i18n";
+import { AddNew } from "../AddNew";
 import { Btn } from "../Button";
 import { Checkbox } from "../Checkbox";
 import { Field } from "../Field";
@@ -104,13 +105,7 @@ function renderSwitch(
       );
     case "list":
       return (
-        <div>
-          <input type="hidden" value={formValues[key]} />
-
-          <Btn name={key} medium type={type} {...rest}>
-            {i18n.t(title)}
-          </Btn>
-        </div>
+        <AddNew id={id} name={key} key={key} onChange={onChange} {...rest} />
       );
     default:
       return (
