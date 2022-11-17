@@ -19,7 +19,9 @@ const usersArr = range(20, () => ({
 const teamsArr = range(5, () => ({
   id: faker.datatype.uuid(),
   name: faker.company.name(),
-  members: getRandomUniqueArrValues(randomIntNoZero(8), usersArr),
+  users: getRandomUniqueArrValues(randomIntNoZero(8), usersArr).map(
+    (item) => item.id
+  ),
 }));
 
 const tasksArr = range(15, () => ({

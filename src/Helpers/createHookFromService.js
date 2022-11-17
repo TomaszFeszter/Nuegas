@@ -2,11 +2,11 @@ import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 
 export const createHookFromService =
   (service, key) =>
-  ({ id, enableAll = false, enableOne = true }) => {
+  ({ id, enableAll = false, enableOne = true, config }) => {
     const queryClient = useQueryClient();
     const queryAll = useQuery({
       queryKey: [key],
-      queryFn: () => service.getAll(),
+      queryFn: () => service.getAll(config),
       enabled: enableAll,
     });
     const queryOne = useQuery({
@@ -16,7 +16,7 @@ export const createHookFromService =
     });
     const idKey = key + "-" + id;
     const createOne = useMutation({
-      mutationFn: (data) => service.createOne(data),
+      mutationFn: service.createOne,
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: [key] });
         queryClient.invalidateQueries({ queryKey: [idKey] });
@@ -24,7 +24,7 @@ export const createHookFromService =
     });
 
     const deleteOne = useMutation({
-      mutationFn: (data) => service.deleteOne(id, data),
+      mutationFn: service.deleteOne,
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: [key] });
         queryClient.invalidateQueries({ queryKey: [idKey] });
@@ -32,7 +32,7 @@ export const createHookFromService =
     });
 
     const updateOne = useMutation({
-      mutationFn: (data) => service.updateOne(id, data),
+      mutationFn: service.updateOne,
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: [key] });
         queryClient.invalidateQueries({ queryKey: [idKey] });

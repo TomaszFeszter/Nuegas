@@ -8,7 +8,11 @@ import { Teams } from "../../features/Teams";
 
 export const TeamsPage = () => {
   const { token, isLoading } = useAuth();
-  const { items } = useTeams({ enableAll: true, enableOne: false });
+  const { items } = useTeams({
+    enableAll: true,
+    enableOne: false,
+    config: { params: { _embed: "users" } },
+  });
 
   if (isLoading) return <div>Loading...</div>;
 

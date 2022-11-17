@@ -11,19 +11,19 @@ const baseUrl = "http://localhost:3000/";
 // };
 
 export const createService = (endpoint) => ({
-  getAll: async (options) => {
-    return axios.get(baseUrl + endpoint, options);
+  getAll: async (config) => {
+    return axios.get(baseUrl + endpoint, config);
   },
-  createOne: async (options) => {
-    return axios.post(baseUrl + endpoint, options);
+  createOne: async (config) => {
+    return axios.post(baseUrl + endpoint, config);
   },
-  getOne: async (id, options) => {
-    return axios.get(baseUrl + endpoint + "/" + id, options);
+  getOne: async (id, { data, config }) => {
+    return axios.get(baseUrl + endpoint + "/" + id, data, config);
   },
-  updateOne: async (id, options) => {
-    return axios.put(baseUrl + endpoint + "/" + id, options);
+  updateOne: async (id, { data, config }) => {
+    return axios.put(baseUrl + endpoint + "/" + id, data, config);
   },
-  deleteOne: async (id, options) => {
-    return axios.delete(baseUrl + endpoint + "/" + id, options);
+  deleteOne: async (id, { data, config }) => {
+    return axios.delete(baseUrl + endpoint + "/" + id, data, config);
   },
 });

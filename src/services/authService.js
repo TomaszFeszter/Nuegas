@@ -2,6 +2,7 @@ import axios from "axios";
 
 export const authService = {
   auth: async ({ email, password, type }) => {
+    console.log(type);
     if (type === "logout") throw Error("User has been logged out.");
 
     if (type === "register")
