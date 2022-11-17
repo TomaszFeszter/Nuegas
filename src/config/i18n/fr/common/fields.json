@@ -1,8 +1,8 @@
 {
-  "placeholder": "Please type value in field {{value}}",
-  "label": "{{value}} field",
-  "title": "{{value}} title",
-  "name": "{{value}} name",
-  "password": "{{value}} name",
-  "email": "{{value}} name"
+  "placeholder": "Veuillez saisir une valeur dans le champ {{value}}",
+  "label": "{{value}} champ",
+  "title": "Titre",
+  "name": "Nom",
+  "password": "Mot de passe",
+  "email": "Email"
 }

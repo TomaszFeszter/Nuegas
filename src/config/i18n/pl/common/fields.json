@@ -1,8 +1,8 @@
 {
-  "placeholder": "Please type value in field {{value}}",
-  "label": "{{value}} field",
-  "title": "{{value}} title",
-  "name": "{{value}} name",
-  "password": "{{value}} name",
-  "email": "{{value}} name"
+  "placeholder": "Wprowadź {{value}}",
+  "label": "Pole",
+  "title": "Tytuł",
+  "name": "Nazwa",
+  "password": "Hasło",
+  "email": "Email"
 }
