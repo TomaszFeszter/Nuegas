@@ -1,0 +1,25 @@
+{
+  "new": {
+    "title": "Stwórz nowe zadanie",
+    "create": {
+      "title": {
+        "title": "Tytuł zadania",
+        "placeholder": "Wprowadź tytuł"
+      },
+      "description": {
+        "title": "Opis zadania",
+        "placeholder": "Wprowadź opis"
+      },
+      "deadline": {
+        "title": "Termin zadania"
+      },
+      "objectives": {
+        "title": "Lista zadań",
+        "btn": "Dodaj"
+      },
+      "button": {
+        "title": "Stwórz zadanie"
+      }
+    }
+  }
+}

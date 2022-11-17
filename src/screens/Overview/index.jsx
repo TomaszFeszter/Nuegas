@@ -13,9 +13,8 @@ const Aside = styled(Cell)`
 `;
 
 export const OverviewPage = () => {
-  const { user, token, isLoading } = useAuth();
+  const { token, isLoading } = useAuth();
   const { items } = useTasks({ enableAll: true, enableOne: false });
-  console.log(user);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -24,10 +23,10 @@ export const OverviewPage = () => {
   return (
     <Page>
       <Grid>
-        <PageTemplate welcomeMsg contentSize={8}>
+        <PageTemplate welcomeMsg contentSize={9}>
           <TaskSlider tasks={items && items.data} />
         </PageTemplate>
-        <Aside size={4}>
+        <Aside size={5}>
           <AppCalendar />
         </Aside>
       </Grid>

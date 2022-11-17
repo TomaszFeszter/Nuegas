@@ -8,6 +8,7 @@ import {
 import { SmallList, SmallListItem } from "../../components/SmallList";
 import { Avatar } from "../../components/Avatar";
 import { useAuth } from "../../hooks/useAuth";
+import i18n from "../../i18n";
 
 export const UserDropdown = ({ user }) => {
   const { auth } = useAuth();
@@ -20,13 +21,18 @@ export const UserDropdown = ({ user }) => {
       </DropdownOpen>
       <DropdownContent>
         <SmallList>
-          <SmallListItem title="Profile" onClick={() => navigate()} />
           <SmallListItem
-            title="Settings"
+            title={i18n.t("pageTemplate:heading:dropdown:profile")}
+            onClick={() => navigate()}
+          />
+          <SmallListItem
+            title={i18n.t("pageTemplate:heading:dropdown:settings")}
             onClick={() => navigate("/settings")}
           />
-          <SmallListItem title="Help Center" onClick={() => navigate()} />
-          <SmallListItem title="Logout" onClick={() => auth({}, "logout")} />
+          <SmallListItem
+            title={i18n.t("pageTemplate:heading:dropdown:logout")}
+            onClick={() => auth({}, "logout")}
+          />
         </SmallList>
       </DropdownContent>
     </Dropdown>

@@ -4,12 +4,11 @@ import { Grid, Page } from "../../layouts/common";
 import { useTasks } from "../../hooks";
 import { TaskSlider } from "../../features/TaskSlider";
 import { PageTemplate } from "../../layouts/pageTemplate";
+import { CreateTask } from "../../features/CreateTask";
 
 export const TasksPage = () => {
   const { token, isLoading } = useAuth();
   const { items } = useTasks({ enableAll: true, enableOne: false });
-
-  console.log(items);
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -18,7 +17,7 @@ export const TasksPage = () => {
   return (
     <Page>
       <Grid>
-        <PageTemplate searchBar addTask>
+        <PageTemplate searchBar addForm={<CreateTask />}>
           <TaskSlider tasks={items && items.data} />
         </PageTemplate>
       </Grid>

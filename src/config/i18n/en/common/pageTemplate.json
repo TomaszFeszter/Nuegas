@@ -1,0 +1,30 @@
+{
+  "heading": {
+    "title": "Hi, ",
+    "subtitle": "Let's finish your task today!",
+    "dropdown": {
+      "profile": "Profile",
+      "settings": "Settings",
+      "logout": "Log out"
+    }
+  },
+  "searchBar": {
+    "inputPlaceholder": "Search",
+    "add": "Add new",
+    "filter": "Filter by: ",
+    "sort": "Sort by: "
+  },
+  "menu": {
+    "overview": "Overview",
+    "projects": "Projects",
+    "tasks": "Tasks",
+    "teams": "Teams",
+    "boards": "Boards",
+    "settings": "Settings"
+  },
+  "card": {
+    "heading": "Help Center",
+    "text": "Having Trouble in Learning. Please contact us for more questions.",
+    "button": "Go to Help Center"
+  }
+}

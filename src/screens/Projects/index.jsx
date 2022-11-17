@@ -1,14 +1,14 @@
 import { useAuth } from "../../hooks/useAuth";
 import React from "react";
 import { Grid, Page } from "../../layouts/common";
-import { useBoards } from "../../hooks";
+import { useProjects } from "../../hooks";
 import { PageTemplate } from "../../layouts/pageTemplate";
-import { CreateBoard } from "../../features/CreateBoard";
-import { Boards } from "../../features/Boards";
+import { CreateProject } from "../../features/CreateProject";
+import { Projects } from "../../features/Projects";
 
-export const BoardsPage = () => {
+export const ProjectsPage = () => {
   const { token, isLoading } = useAuth();
-  const { items } = useBoards({ enableAll: true, enableOne: false });
+  const { items } = useProjects({ enableAll: true, enableOne: false });
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -17,8 +17,8 @@ export const BoardsPage = () => {
   return (
     <Page>
       <Grid>
-        <PageTemplate searchBar addForm={<CreateBoard />}>
-          <Boards boards={items && items.data} />
+        <PageTemplate searchBar addForm={<CreateProject />}>
+          <Projects projects={items && items.data} />
         </PageTemplate>
       </Grid>
     </Page>

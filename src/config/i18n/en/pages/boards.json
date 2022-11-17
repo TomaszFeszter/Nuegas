@@ -1,0 +1,17 @@
+{
+  "new": {
+    "title": "Create new board",
+    "create": {
+      "title": {
+        "title": "Board title",
+        "placeholder": "Enter board title"
+      },
+      "button": {
+        "title": "Create board"
+      }
+    }
+  },
+  "exist": {
+    "heading": "Boards"
+  }
+}

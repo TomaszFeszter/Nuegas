@@ -1,0 +1,30 @@
+{
+  "heading": {
+    "title": "Witaj, ",
+    "subtitle": "Dokończmy dziś Twoje zadanie!",
+    "dropdown": {
+      "profile": "Profil",
+      "settings": "Ustawienia",
+      "logout": "Wyloguj się"
+    }
+  },
+  "searchBar": {
+    "inputPlaceholder": "Szukaj",
+    "add": "Dodaj",
+    "filter": "Filtruj według: ",
+    "sort": "Sortuj według: "
+  },
+  "menu": {
+    "overview": "Przegląd",
+    "projects": "Projekty",
+    "tasks": "Zadania",
+    "teams": "Zespoły",
+    "boards": "Tablice",
+    "settings": "Ustawienia"
+  },
+  "card": {
+    "heading": "Centrum pomocy",
+    "text": "Problemy z nauką. Skontaktuj się z nami, aby uzyskać więcej pytań.",
+    "button": "Przejdź do Centrum Pomocy"
+  }
+}

@@ -1,8 +1,8 @@
 import React from "react";
 // import styled from "styled-components";
 import { AutoForm } from "../../components/AutoForm";
-import { useAuth } from "../../hooks/useAuth";
-import createTaskSchema from "./../../config/schemas/pages/newTask.json";
+import { useTasks } from "../../hooks";
+import createTaskSchema from "./../../config/schemas/pages/tasks.json";
 
 // const CustomAutoForm = styled(AutoForm)`
 //   button {
@@ -14,17 +14,19 @@ import createTaskSchema from "./../../config/schemas/pages/newTask.json";
 // `;
 
 export const CreateTask = () => {
-  const { auth } = useAuth();
-  const initialValues = {};
-  initialValues["date"] = new Date().toISOString().split("T")[0];
+  const { createOne } = useTasks({ enableOne: false });
+  const initialValues = {
+    firstGroup: { deadline: new Date().toISOString().slice(0, 16) },
+  };
 
-  const onSubmit = (formData) => {
-    const email = formData.get("email");
-    const password = formData.get("password");
+  const onSubmit = ({
+    description,
+    objectives,
+    firstGroup: { title, deadline },
+  }) => {
+    // console.log(formData.entries());
 
-    if (!email || !password) return;
-
-    auth({ email, password });
+    createOne({ description, title, deadline, objectives, id: Date.now() });
   };
 
   return (

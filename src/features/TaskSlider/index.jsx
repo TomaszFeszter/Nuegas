@@ -8,14 +8,17 @@ export const TaskSlider = ({ tasks }) => {
   // const { item, getOne } = useUsers();
   // console.log(item);
   // console.log(getOne());
+  // console.log(tasks);
   return (
     <Slider label="Tasks">
       {tasks
-        ? tasks.map(({ id, src, title, objectives }) => {
+        ? tasks.map(({ id, src, title, objectives, colaborators }) => {
+            // console.log(objectives);
             let countObjectives = 0;
-            objectives.map((objective) => {
-              objective.complete === true && countObjectives++;
-            });
+            if (Array.isArray(objectives))
+              objectives.forEach((objective) => {
+                objective.complete === true && countObjectives++;
+              });
             return (
               <SplideSlide key={id}>
                 <Task
@@ -23,16 +26,11 @@ export const TaskSlider = ({ tasks }) => {
                   title={title}
                   category="UI UX Design"
                   completed={countObjectives}
-                  taskLength={objectives.length}
+                  taskLength={objectives && objectives.length}
                   deadline="5 Hours"
-                  colaborators={[
-                    "https://www.w3schools.com/howto/img_avatar.png",
-                    "https://www.w3schools.com/howto/img_avatar2.png",
-                    "https://www.w3schools.com/w3images/avatar2.png",
-                    "https://www.w3schools.com/w3images/avatar6.png",
-                    "https://www.w3schools.com/w3images/avatar5.png",
-                    "https://toppng.com/uploads/preview/avatar-png-11554021819gij72acuim.png",
-                  ]}
+                  colaborators={
+                    colaborators && colaborators.map((member) => member.avatar)
+                  }
                 />
               </SplideSlide>
             );

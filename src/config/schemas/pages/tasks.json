@@ -28,7 +28,8 @@
     "objectives": {
       "type": "list",
       "id": "objectives",
-      "title": "task:new:create:objectives:title"
+      "title": "task:new:create:objectives:title",
+      "btn": "task:new:create:objectives:btn"
     },
     "button": {
       "type": "submit",

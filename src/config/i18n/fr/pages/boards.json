@@ -1,0 +1,17 @@
+{
+  "new": {
+    "title": "Créer un nouveau tableau",
+    "create": {
+      "title": {
+        "title": "Titre du conseil",
+        "placeholder": "Entrez le titre du tableau"
+      },
+      "button": {
+        "title": "Créer un tableau"
+      }
+    }
+  },
+  "exist": {
+    "heading": "Planches"
+  }
+}

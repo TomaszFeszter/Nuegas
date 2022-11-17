@@ -20,7 +20,6 @@ export const SliderComponent = ({ className, children }) => {
 };
 
 export const Slider = styled(SliderComponent)`
-  overflow: hidden;
   position: relative;
   ${(props) =>
     props.label &&

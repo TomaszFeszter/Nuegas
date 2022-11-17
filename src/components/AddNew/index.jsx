@@ -1,28 +1,42 @@
 import React from "react";
 import { Delete } from "react-feather";
+import styled from "styled-components";
 import { Btn } from "../Button";
 import { Input } from "../Input";
+import { P1 } from "../Parahraphs";
 
-export const AddNew = ({
+const AddNewComponent = ({
+  forTask,
   name,
   className,
   onChange,
   id,
   value = [],
+  btn,
   ...rest
 }) => {
   return (
     <div className={className}>
       <input id={id} type="hidden" name={name} value={value} {...rest} />
       <ul>
-        {value.map((input, indx) => {
+        {value.map((input, index) => {
           return (
             <li key={input.key}>
+              <P1>{index + 1}.</P1>
               <Input
                 type="text"
                 onChange={(e) => {
                   const newVal = [...value];
-                  newVal[indx] = { ...input, value: e.target.value };
+                  newVal[index] = forTask
+                    ? {
+                        ...input,
+                        value: e.target.value,
+                        completed: false,
+                      }
+                    : {
+                        ...input,
+                        value: e.target.value,
+                      };
                   onChange(name, newVal);
                 }}
               />
@@ -34,9 +48,8 @@ export const AddNew = ({
                   );
                   onChange(name, newVal);
                 }}
-              >
-                <Delete />
-              </Btn>
+                leftIcon={<Delete />}
+              />
             </li>
           );
         })}
@@ -49,8 +62,33 @@ export const AddNew = ({
           onChange(name, [...value, { value: "", key: Date.now() }]);
         }}
       >
-        Add new
+        {btn}
       </Btn>
     </div>
   );
 };
+
+export const AddNew = styled(AddNewComponent)`
+  ul {
+    li {
+      position: relative;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      margin-bottom: 1rem;
+
+      &:last-child {
+        margin-bottom: 3.4rem;
+      }
+
+      > p {
+        position: absolute;
+        z-index: 100;
+      }
+
+      input {
+        margin-left: 4rem;
+      }
+    }
+  }
+`;

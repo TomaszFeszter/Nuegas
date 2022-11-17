@@ -59,10 +59,12 @@ const TaskComponent = ({
         <P1 fontWeight="600">{title}</P1>
         <P2>{category}</P2>
       </div>
-      <Progress value={completed} max={taskLength} title long />
+      {completed || taskLength ? (
+        <Progress value={completed} max={taskLength} title long />
+      ) : null}
       <Wrap>
-        <IconLabel icon={<Clock />} label={deadline} />
-        <AvatarList imgList={colaborators} />
+        {deadline ? <IconLabel icon={<Clock />} label={deadline} /> : null}
+        {colaborators ? <AvatarList imgList={colaborators} /> : null}
       </Wrap>
       {details && (
         <Details>

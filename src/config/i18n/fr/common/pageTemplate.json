@@ -1,0 +1,30 @@
+{
+  "heading": {
+    "title": "Salut, ",
+    "subtitle": "Terminons votre tâche aujourd'hui !",
+    "dropdown": {
+      "profile": "Profil",
+      "settings": "Réglages",
+      "logout": "Se déconnecter"
+    }
+  },
+  "searchBar": {
+    "inputPlaceholder": "Chercher",
+    "add": "Ajouter nouveau",
+    "filter": "Filtrer par: ",
+    "sort": "Trier par: "
+  },
+  "menu": {
+    "overview": "Aperçu",
+    "projects": "Projets",
+    "tasks": "Tâches",
+    "teams": "Équipes",
+    "boards": "Planches",
+    "settings": "Réglages"
+  },
+  "card": {
+    "heading": "Centre d'aide",
+    "text": "Avoir des difficultés à apprendre. Veuillez nous contacter pour plus de questions.",
+    "button": "Accéder au centre d'aide"
+  }
+}

@@ -15,5 +15,9 @@
     "button": {
       "title": "Zaloguj się"
     }
+  },
+  "link": {
+    "password": "Zapomniałeś hasła?",
+    "register": "Utwórz konto"
   }
 }

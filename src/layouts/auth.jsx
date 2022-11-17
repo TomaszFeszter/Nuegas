@@ -27,8 +27,9 @@ const FormCell = styled(Cell)`
 const Container = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center;
-  padding: 0 6rem;
+  justify-content: flex-start;
+  overflow: scroll;
+  padding: 2rem 6rem;
   width: 60%;
   height: 100%;
   position: relative;

@@ -12,7 +12,7 @@ import { ArrowDown, Filter, Plus } from "react-feather";
 import { Card } from "../components/Card";
 import { Modal } from "../components/Modal";
 import { useState } from "react";
-import { CreateTask } from "../features/CreateTask";
+import i18n from "../i18n";
 
 const MenuCell = styled(Cell)`
   padding: 2rem;
@@ -21,7 +21,15 @@ const MenuCell = styled(Cell)`
   align-content: center;
 `;
 
+const ContentCell = styled(Cell)`
+  background-color: ${(props) => props.theme.light200};
+  display: flex;
+  flex-direction: column;
+  align-content: center;
+`;
+
 const ContentHeading = styled.div`
+  background-color: ${(props) => props.theme.white};
   width: 100%;
   max-height: 19.2rem;
   padding: 3.2rem;
@@ -45,20 +53,20 @@ const Group = styled.div`
 
 const Content = styled.div`
   width: 100%;
-  height: 100%;
-  background-color: ${(props) => props.theme.light200};
   display: flex;
   flex-direction: column;
   gap: 3.2rem;
   padding: 3.2rem;
+  overflow-y: auto;
+  height: 100%;
 `;
 
 export const PageTemplate = ({
   children,
-  contentSize = 12,
+  contentSize = 14,
   welcomeMsg,
   searchBar,
-  addTask,
+  addForm,
 }) => {
   const { user, isLoading } = useAuth();
   const [active, setActive] = useState(false);
@@ -67,22 +75,25 @@ export const PageTemplate = ({
 
   return (
     <>
-      <MenuCell size={2}>
+      <MenuCell size={3}>
         <MenuSidebar />
         <Card
-          heading="Help Center"
-          content="Having Trouble in Learning. Please contact us for more questions."
-          btnText="Go To Help Center"
+          heading={i18n.t("pageTemplate:card:heading")}
+          content={i18n.t("pageTemplate:card:text")}
+          btnText={i18n.t("pageTemplate:card:button")}
         />
       </MenuCell>
-      <Cell size={contentSize}>
+      <ContentCell size={contentSize}>
         <ContentHeading>
           <div>
             <Group vertical justify={"center"} gap={"0.8rem"}>
               <H2>
-                Hi, {user && user.name} {user && user.lastName}
+                {i18n.t("pageTemplate:heading:title")}
+                {user && user.name} {user && user.lastName}
               </H2>
-              {welcomeMsg ? <P1>Lets finish your task today!</P1> : null}
+              {welcomeMsg ? (
+                <P1>{i18n.t("pageTemplate:heading:subtitle")}</P1>
+              ) : null}
             </Group>
             <Group>
               {/* TODO notification dropdown */}
@@ -92,28 +103,32 @@ export const PageTemplate = ({
           {searchBar && (
             <div>
               <Group>
-                <InputSearch placeholder="Search" />
-                {addTask && (
+                <InputSearch
+                  placeholder={i18n.t(
+                    "pageTemplate:searchBar:inputPlaceholder"
+                  )}
+                />
+                {addForm && (
                   <Btn rightIcon={<Plus />} onClick={() => setActive(!active)}>
-                    Add Task
+                    {i18n.t("pageTemplate:searchBar:add")}
                   </Btn>
                 )}
               </Group>
               <Group>
                 <Btn leftIcon={<Filter />} secondary>
-                  Filter by:
+                  {i18n.t("pageTemplate:searchBar:filter")}
                 </Btn>
                 <Btn leftIcon={<ArrowDown />} secondary>
-                  Sort by:
+                  {i18n.t("pageTemplate:searchBar:sort")}
                 </Btn>
               </Group>
             </div>
           )}
         </ContentHeading>
         <Content>{children}</Content>
-      </Cell>
+      </ContentCell>
       <Modal active={active} setActive={setActive}>
-        <CreateTask />
+        {addForm}
       </Modal>
     </>
   );

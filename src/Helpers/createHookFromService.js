@@ -16,7 +16,7 @@ export const createHookFromService =
     });
     const idKey = key + "-" + id;
     const createOne = useMutation({
-      mutationFn: (data) => service.createOne(id, data),
+      mutationFn: (data) => service.createOne(data),
       onSuccess: () => {
         queryClient.invalidateQueries({ queryKey: [key] });
         queryClient.invalidateQueries({ queryKey: [idKey] });

@@ -1,23 +1,14 @@
 import { useAuth } from "../../hooks/useAuth";
 import React from "react";
-import { Btn } from "../../components/Button";
-import { Cell, Grid, Page } from "../../layouts/common";
-import { MenuSidebar } from "../../features/MenuSidebar";
-import styled from "styled-components";
-import { useTasks } from "../../hooks";
-
-const MenuCell = styled(Cell)`
-  padding: 2rem;
-  display: flex;
-  flex-direction: column;
-  align-content: center;
-`;
+import { Grid, Page } from "../../layouts/common";
+import { useTeams } from "../../hooks";
+import { PageTemplate } from "../../layouts/pageTemplate";
+import { CreateTeam } from "../../features/CreateTeam";
+import { Teams } from "../../features/Teams";
 
 export const TeamsPage = () => {
-  const { token, isLoading, auth } = useAuth();
-  const { items } = useTasks({ enableAll: true, enableOne: false });
-
-  console.log(items);
+  const { token, isLoading } = useAuth();
+  const { items } = useTeams({ enableAll: true, enableOne: false });
 
   if (isLoading) return <div>Loading...</div>;
 
@@ -26,13 +17,9 @@ export const TeamsPage = () => {
   return (
     <Page>
       <Grid>
-        <MenuCell size={2}>
-          <MenuSidebar />
-          <Btn medium onClick={() => auth({}, "logout")}>
-            Logout
-          </Btn>
-        </MenuCell>
-        <Cell size={12}></Cell>
+        <PageTemplate searchBar addForm={<CreateTeam />}>
+          <Teams teams={items && items.data} />
+        </PageTemplate>
       </Grid>
     </Page>
   );

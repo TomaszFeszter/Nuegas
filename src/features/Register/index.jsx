@@ -9,11 +9,7 @@ export const Register = () => {
     secondGroup: { birthDate: new Date().toISOString().split("T")[0] },
   };
 
-  const onSubmit = (formData) => {
-    const email = formData.get("email");
-    const password = formData.get("password");
-    const confirmPassword = formData.get("confirmPassword");
-
+  const onSubmit = ({ email, password, confirmPassword }) => {
     if (!email || !password || !confirmPassword || password !== confirmPassword)
       return;
 

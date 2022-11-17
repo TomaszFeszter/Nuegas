@@ -1,0 +1,25 @@
+{
+  "new": {
+    "title": "Créer une nouvelle tâche",
+    "create": {
+      "title": {
+        "title": "Titre de la tâche",
+        "placeholder": "Entrez le titre de la tâche"
+      },
+      "description": {
+        "title": "Description de la tâche",
+        "placeholder": "Entrez la description de la tâche"
+      },
+      "deadline": {
+        "title": "Date limite de la tâche"
+      },
+      "objectives": {
+        "title": "liste des tâches",
+        "btn": "Ajouter nouveau"
+      },
+      "button": {
+        "title": "Créer une tâche"
+      }
+    }
+  }
+}

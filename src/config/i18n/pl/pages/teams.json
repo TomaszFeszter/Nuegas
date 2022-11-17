@@ -1,0 +1,20 @@
+{
+  "new": {
+    "title": "Tworzenie nowego zespołu",
+    "create": {
+      "title": {
+        "title": "Nazwa zespołu",
+        "placeholder": "Wprowadź nazwę zespołu"
+      },
+      "members": {
+        "title": "Wybierz członków zespołu"
+      },
+      "button": {
+        "title": "Stwórz zespół"
+      }
+    }
+  },
+  "exist": {
+    "heading": "Zespoły"
+  }
+}

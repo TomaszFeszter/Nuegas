@@ -27,14 +27,15 @@ export const Grid = styled.div`
 `;
 
 export const Cell = styled.div`
+  overflow-y: auto;
   width: 100%;
   height: 100%;
   ${(props) => {
     let styles = "";
 
     if (props.size) {
-      for (let i = 1; i <= 14; i++) {
-        if (props.size === i) styles += `max-width: calc(100% / 14 * ${i})`;
+      for (let i = 1; i <= 17; i++) {
+        if (props.size === i) styles += `max-width: calc(100% / 17 * ${i})`;
       }
     } else styles += `max-width: calc(100%)`;
 

@@ -15,10 +15,7 @@ const CustomAutoForm = styled(AutoForm)`
 
 export const Login = () => {
   const { auth } = useAuth();
-  const onSubmit = (formData) => {
-    const email = formData.get("email");
-    const password = formData.get("password");
-
+  const onSubmit = ({ email, password }) => {
     if (!email || !password) return;
 
     auth({ email, password });

@@ -1,0 +1,20 @@
+{
+  "new": {
+    "title": "Create new team",
+    "create": {
+      "name": {
+        "title": "Team name",
+        "placeholder": "Enter team name"
+      },
+      "members": {
+        "title": "Choose members for your team"
+      },
+      "button": {
+        "title": "Create team"
+      }
+    }
+  },
+  "exist": {
+    "heading": "Teams"
+  }
+}

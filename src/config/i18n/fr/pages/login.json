@@ -15,5 +15,9 @@
     "button": {
       "title": "Connexion"
     }
+  },
+  "link": {
+    "password": "Mot de passe oublié?",
+    "register": "Créer un compte"
   }
 }

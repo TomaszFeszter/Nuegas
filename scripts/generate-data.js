@@ -43,6 +43,14 @@ const comentsArr = range(20, () => ({
   content: faker.lorem.lines(randomIntNoZero(3)),
 }));
 
+const projectsArr = range(5, () => ({
+  id: faker.datatype.uuid(),
+  title: faker.lorem.sentence(randomIntNoZero(5)),
+  colaborators: getRandomUniqueArrValues(randomIntNoZero(8), usersArr),
+  tasks: getRandomUniqueArrValues(randomIntNoZero(10), tasksArr),
+  createdBy: usersArr[random(19)].id,
+}));
+
 const boardArr = range(5, () => ({
   id: faker.datatype.uuid(),
   title: faker.lorem.sentence(randomIntNoZero(5)),
@@ -61,6 +69,7 @@ const dataObj = {
   teams: teamsArr,
   tasks: tasksArr,
   comments: comentsArr,
+  projects: projectsArr,
   boards: boardArr,
   boardColumns: boardColumnsArr,
 };

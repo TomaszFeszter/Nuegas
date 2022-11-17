@@ -11,6 +11,7 @@ import { lightTheme } from "./themes";
 import { TasksPage } from "./screens/Tasks";
 import { TeamsPage } from "./screens/Teams";
 import { BoardsPage } from "./screens/Boards";
+import { ProjectsPage } from "./screens/Projects";
 
 const queryClient = new QueryClient();
 
@@ -74,6 +75,14 @@ function App() {
               element={
                 <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
                   <OverviewPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/projects"
+              element={
+                <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
+                  <ProjectsPage />
                 </PrivateRoute>
               }
             />

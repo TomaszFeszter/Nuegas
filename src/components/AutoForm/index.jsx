@@ -25,7 +25,7 @@ const Group = styled.div`
 `;
 
 function renderSwitch(
-  [key, { type, id, title, placeholder, fields, ...rest }],
+  [key, { type, id, title, placeholder, fields, btn, ...rest }],
   onChange,
   formValues = {}
 ) {
@@ -105,7 +105,16 @@ function renderSwitch(
       );
     case "list":
       return (
-        <AddNew id={id} name={key} key={key} onChange={onChange} {...rest} />
+        <Field input id={id} label={i18n.t(title)} lHeight="3rem">
+          <AddNew
+            id={id}
+            name={key}
+            key={key}
+            onChange={onChange}
+            btn={i18n.t(btn)}
+            {...rest}
+          />
+        </Field>
       );
     default:
       return (
@@ -137,8 +146,7 @@ const AutoFormComponent = ({
   const handleSubmit = (e) => {
     e.preventDefault();
 
-    const formData = new FormData(formRef.current);
-    onSubmit(formData);
+    onSubmit(formValues);
   };
 
   const handleChange = useCallback(

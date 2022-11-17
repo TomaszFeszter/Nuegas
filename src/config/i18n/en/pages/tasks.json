@@ -13,6 +13,10 @@
       "deadline": {
         "title": "Task deadline"
       },
+      "objectives": {
+        "title": "Tasks list",
+        "btn": "Add new"
+      },
       "button": {
         "title": "Create task"
       }
