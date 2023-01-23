@@ -8,7 +8,7 @@ import { Route, Routes } from "react-router";
 import { PrivateRoute } from "./features/PrivateRoute";
 import { GlobalStyle } from "./styles/globalStyles";
 import { lightTheme } from "./themes";
-import { TasksPage } from "./screens/Tasks";
+import { EditTasksPage, TaskPage, TasksPage } from "./screens/Tasks";
 import { TeamsPage } from "./screens/Teams";
 import { BoardsPage } from "./screens/Boards";
 import { ProjectsPage } from "./screens/Projects";
@@ -51,6 +51,22 @@ function App() {
               element={
                 <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
                   <TasksPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/task/:taskId"
+              element={
+                <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
+                  <TaskPage />
+                </PrivateRoute>
+              }
+            />
+            <Route
+              path="/task/edit/:taskId"
+              element={
+                <PrivateRoute mustBeAuthorized={true} redirectTo="/login">
+                  <EditTasksPage />
                 </PrivateRoute>
               }
             />

@@ -3,7 +3,7 @@ import React from "react";
 import { Cell, Grid, Page } from "../../layouts/common";
 import { PageTemplate } from "../../layouts/pageTemplate";
 import { useTasks } from "../../hooks";
-import { TaskSlider } from "../../features/TaskSlider";
+import { TaskSlider } from "../../features/Tasks";
 import styled from "styled-components";
 import { AppCalendar } from "../../components/Calendar";
 

@@ -1,0 +1,15 @@
+{
+  "title": "board:new:title",
+  "fields": {
+    "title": {
+      "type": "text",
+      "title": "common:title",
+      "placeholder": "common:placeholder",
+      "required": true
+    },
+    "button": {
+      "type": "submit",
+      "title": "board:new:create:button:title"
+    }
+  }
+}

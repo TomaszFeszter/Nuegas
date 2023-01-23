@@ -2,22 +2,25 @@ import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
 import enLogin from "./config/i18n/en/pages/login.json";
 import enRegister from "./config/i18n/en/pages/register.json";
-import enTasks from "./config/i18n/en/pages/tasks.json";
-import enTeams from "./config/i18n/en/pages/teams.json";
-import enProjects from "./config/i18n/en/pages/projects.json";
-import enBoards from "./config/i18n/en/pages/boards.json";
+import enNewTask from "./config/i18n/en/pages/newTask.json";
+import enEditTask from "./config/i18n/en/pages/editTask.json";
+import enNewTeam from "./config/i18n/en/pages/newTeam.json";
+import enNewProject from "./config/i18n/en/pages/newProject.json";
+import enNewBoard from "./config/i18n/en/pages/newBoard.json";
 import enPageTemplate from "./config/i18n/en/common/pageTemplate.json";
 import frLogin from "./config/i18n/fr/pages/login.json";
 import frRegister from "./config/i18n/fr/pages/register.json";
-import frTasks from "./config/i18n/fr/pages/tasks.json";
-import frTeams from "./config/i18n/fr/pages/teams.json";
-import frProjects from "./config/i18n/fr/pages/projects.json";
-import frBoards from "./config/i18n/fr/pages/boards.json";
+import frNewTask from "./config/i18n/fr/pages/newTask.json";
+import frEditTask from "./config/i18n/fr/pages/editTask.json";
+import frNewTeam from "./config/i18n/fr/pages/newTeam.json";
+import frNewProject from "./config/i18n/fr/pages/newProject.json";
+import frNewBoard from "./config/i18n/fr/pages/newBoard.json";
 import frPageTemplate from "./config/i18n/fr/common/pageTemplate.json";
-import plTasks from "./config/i18n/pl/pages/tasks.json";
-import plProjects from "./config/i18n/pl/pages/projects.json";
-import plTeams from "./config/i18n/pl/pages/teams.json";
-import plBoards from "./config/i18n/pl/pages/boards.json";
+import plNewTask from "./config/i18n/pl/pages/newTask.json";
+import plEditTask from "./config/i18n/pl/pages/editTask.json";
+import plNewProject from "./config/i18n/pl/pages/newProject.json";
+import plNewTeam from "./config/i18n/pl/pages/newTeam.json";
+import plNewBoard from "./config/i18n/pl/pages/newBoard.json";
 import plLogin from "./config/i18n/pl/pages/login.json";
 import plRegister from "./config/i18n/pl/pages/register.json";
 import plPageTemplate from "./config/i18n/pl/common/pageTemplate.json";
@@ -29,29 +32,29 @@ const resources = {
   en: {
     login: enLogin,
     register: enRegister,
-    task: enTasks,
-    project: enProjects,
+    task: { new: enNewTask, edit: enEditTask },
+    project: { new: enNewProject },
     pageTemplate: enPageTemplate,
-    team: enTeams,
-    board: enBoards,
+    team: { new: enNewTeam },
+    board: { new: enNewBoard },
   },
   pl: {
     login: plLogin,
     register: plRegister,
-    task: plTasks,
-    project: plProjects,
+    task: { new: plNewTask, edit: plEditTask },
+    project: { new: plNewProject },
     pageTemplate: plPageTemplate,
-    team: plTeams,
-    board: plBoards,
+    team: { new: plNewTeam },
+    board: { new: plNewBoard },
   },
   fr: {
     login: frLogin,
     register: frRegister,
-    task: frTasks,
-    project: frProjects,
+    task: { new: frNewTask, edit: frEditTask },
+    project: { new: frNewProject },
     pageTemplate: frPageTemplate,
-    team: frTeams,
-    board: frBoards,
+    team: { new: frNewTeam },
+    board: { new: frNewBoard },
   },
 };
 

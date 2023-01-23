@@ -3,7 +3,7 @@ import React from "react";
 import { AutoForm } from "../../components/AutoForm";
 import { useBoards } from "../../hooks";
 import { useAuth } from "../../hooks/useAuth";
-import createBoardSchema from "./../../config/schemas/pages/boards.json";
+import createBoardSchema from "./../../config/schemas/pages/newBoard.json";
 
 // const CustomAutoForm = styled(AutoForm)`
 //   button {

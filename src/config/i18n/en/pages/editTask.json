@@ -1,0 +1,23 @@
+{
+  "title": "Edit task",
+  "create": {
+    "title": {
+      "title": "Task title",
+      "placeholder": "Enter task title"
+    },
+    "description": {
+      "title": "Task description",
+      "placeholder": "Enter task description"
+    },
+    "deadline": {
+      "title": "Task deadline"
+    },
+    "objectives": {
+      "title": "Tasks list",
+      "btn": "Add new"
+    },
+    "button": {
+      "title": "Save changes"
+    }
+  }
+}

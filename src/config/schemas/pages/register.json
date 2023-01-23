@@ -6,14 +6,14 @@
       "fields": {
         "firstName": {
           "type": "text",
-          "title": "register:fields:firstName:title",
-          "placeholder": "register:fields:firstName:placeholder",
+          "title": "common:title",
+          "placeholder": "common:placeholder",
           "required": true
         },
         "lastName": {
           "type": "text",
-          "title": "register:fields:lastName:title",
-          "placeholder": "register:fields:lastName:placeholder",
+          "title": "common:title",
+          "placeholder": "common:placeholder",
           "required": true
         }
       }
@@ -23,13 +23,13 @@
       "fields": {
         "email": {
           "type": "email",
-          "title": "register:fields:email:title",
-          "placeholder": "register:fields:email:placeholder",
+          "title": "common:title",
+          "placeholder": "common:placeholder",
           "required": true
         },
         "birthDate": {
           "type": "date",
-          "title": "register:fields:birthDate:title",
+          "title": "common:title",
           "required": true
         }
       }
@@ -39,15 +39,15 @@
       "fields": {
         "password": {
           "type": "password",
-          "title": "register:fields:password:title",
-          "placeholder": "register:fields:password:placeholder",
+          "title": "common:title",
+          "placeholder": "common:placeholder",
           "required": true
         },
         "confirmPassword": {
           "type": "password",
           "id": "confirmPassword",
-          "title": "register:fields:confirmPassword:title",
-          "placeholder": "register:fields:confirmPassword:placeholder"
+          "title": "common:title",
+          "placeholder": "common:placeholder"
         }
       }
     },

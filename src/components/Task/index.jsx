@@ -46,10 +46,10 @@ const TaskComponent = ({
   details,
   taskList,
   listHeading,
-  handleClick,
+  onClick,
 }) => {
   return (
-    <div className={className}>
+    <div onClick={onClick} className={className}>
       {src ? (
         <TaskImg>
           <img src={src} alt="" />
@@ -75,7 +75,7 @@ const TaskComponent = ({
             category={category}
             number
           />
-          <Btn handleClick={() => handleClick()} fontSize="1.4rem">
+          <Btn handleClick={onClick} fontSize="1.4rem">
             Go To Detail
           </Btn>
         </Details>
@@ -85,6 +85,7 @@ const TaskComponent = ({
 };
 
 export const Task = styled(TaskComponent)`
+  position: relative;
   ${(props) => (props.big ? "max-width: 37.2rem;" : "max-width: 32.8rem;")};
   ${(props) => (props.small ? "padding: 2rem;" : "padding: 2.4rem")};
   background-color: ${(props) => props.theme.white};

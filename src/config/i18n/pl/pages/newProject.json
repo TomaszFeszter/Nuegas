@@ -1,0 +1,17 @@
+{
+  "new": {
+    "title": "Stwórz nowy projekt",
+    "create": {
+      "title": {
+        "title": "Tytuł projektu",
+        "placeholder": "Wprowadź tytuł"
+      },
+      "button": {
+        "title": "Stwórz projekt"
+      }
+    }
+  },
+  "exist": {
+    "heading": "Projekty"
+  }
+}

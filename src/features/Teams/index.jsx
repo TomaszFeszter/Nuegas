@@ -10,7 +10,7 @@ const TeamsComponent = ({ className, teams }) => {
   // console.log(getOne());
   return (
     <section className={className}>
-      <H2>{i18n.t("team:exist:heading")}</H2>
+      <H2>{i18n.t("teams:exist:heading")}</H2>
       <div>
         {teams
           ? teams.map(({ id, name, members }) => {

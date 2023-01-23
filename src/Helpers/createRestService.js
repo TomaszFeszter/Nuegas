@@ -17,8 +17,11 @@ export const createService = (endpoint) => ({
   createOne: async (config) => {
     return axios.post(baseUrl + endpoint, config);
   },
-  getOne: async (id, { data, config }) => {
-    return axios.get(baseUrl + endpoint + "/" + id, data, config);
+  // getOne: async (id, { data, config }) => {
+  //   return axios.get(baseUrl + endpoint + "/" + id, data, config);
+  // },
+  getOne: async (id) => {
+    return axios.get(baseUrl + endpoint + "/" + id);
   },
   updateOne: async (id, { data, config }) => {
     return axios.put(baseUrl + endpoint + "/" + id, data, config);

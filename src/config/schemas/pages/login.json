@@ -3,14 +3,14 @@
   "fields": {
     "email": {
       "type": "email",
-      "title": "login:fields:email:title",
-      "placeholder": "login:fields:email:placeholder",
+      "title": "common:title",
+      "placeholder": "common:placeholder",
       "required": true
     },
     "password": {
       "type": "password",
-      "title": "login:fields:password:title",
-      "placeholder": "login:fields:password:placeholder",
+      "title": "common:title",
+      "placeholder": "common:placeholder",
       "required": true
     },
     "checkbox": {

@@ -1,0 +1,39 @@
+{
+  "title": "task:edit:title",
+  "fields": {
+    "firstGroup": {
+      "type": "group",
+      "fields": {
+        "title": {
+          "type": "text",
+          "title": "common:title",
+          "placeholder": "common:placeholder",
+          "required": true
+        },
+        "deadline": {
+          "type": "datetime-local",
+          "id": "checkbox",
+          "title": "common:title"
+        }
+      }
+    },
+    "description": {
+      "type": "text",
+      "title": "common:title",
+      "placeholder": "common:placeholder",
+      "required": true,
+      "long": true
+    },
+
+    "objectives": {
+      "type": "list",
+      "id": "objectives",
+      "title": "common:title",
+      "btn": "task:edit:create:objectives:btn"
+    },
+    "button": {
+      "type": "submit",
+      "title": "task:edit:create:button:title"
+    }
+  }
+}

@@ -27,8 +27,8 @@ const teamsArr = range(5, () => ({
 const tasksArr = range(15, () => ({
   id: faker.datatype.uuid(),
   title: faker.lorem.sentence(randomIntNoZero(5)),
-  src: faker.image.business(330, 170, true),
-  description: faker.lorem.lines(2),
+  src: faker.image.business(730, 370, true),
+  description: faker.lorem.lines(5),
   createdBy: usersArr[random(19)],
   deadline: faker.date.soon(30),
   objectives: range(randomIntNoZero(8), () => ({

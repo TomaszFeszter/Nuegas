@@ -1,0 +1,21 @@
+{
+  "title": "team:new:title",
+  "fields": {
+    "name": {
+      "type": "text",
+      "title": "common:title",
+      "placeholder": "common:placeholder",
+      "required": true
+    },
+    "members": {
+      "type": "text",
+      "id": "members",
+      "title": "common:title",
+      "btn": "team:new:create:members:btn"
+    },
+    "button": {
+      "type": "submit",
+      "title": "team:new:create:button:title"
+    }
+  }
+}

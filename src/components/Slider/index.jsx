@@ -33,6 +33,9 @@ export const Slider = styled(SliderComponent)`
             line-height: 3.6rem;
           }`}
   .splide {
+    &__slide {
+      position: relative;
+    }
     &__arrows {
       display: flex;
       justify-content: end;

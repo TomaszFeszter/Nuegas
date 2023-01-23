@@ -43,12 +43,12 @@ function renderSwitch(
     case "email":
     case "password":
       return (
-        <Field input label={i18n.t(title)} id={id}>
+        <Field input label={i18n.t(title, { value: "TEST" })} id={id}>
           <Input
             type={type}
             id={id}
             name={key}
-            placeholder={i18n.t(placeholder)}
+            placeholder={i18n.t(placeholder, { value: key })}
             onChange={(e) => onChange(key, e.target.value)}
             {...rest}
           />
@@ -66,7 +66,12 @@ function renderSwitch(
       );
     case "checkbox":
       return (
-        <Field checkbox id={id} label={i18n.t(title)} lHeight="2.4rem">
+        <Field
+          checkbox
+          id={id}
+          label={i18n.t(title, { value: key })}
+          lHeight="2.4rem"
+        >
           <Checkbox
             id={id}
             name={key}
@@ -77,7 +82,12 @@ function renderSwitch(
       );
     case "select":
       return (
-        <Field input id={id} label={i18n.t(title)} lHeight="2.4rem">
+        <Field
+          input
+          id={id}
+          label={i18n.t(title, { value: key })}
+          lHeight="2.4rem"
+        >
           <Select
             onChange={(e) => onChange(key, e.target.value)}
             id={id}
@@ -88,7 +98,12 @@ function renderSwitch(
       );
     case "switch":
       return (
-        <Field switch id={id} label={i18n.t(title)} lHeight="3rem">
+        <Field
+          switch
+          id={id}
+          label={i18n.t(title, { value: key })}
+          lHeight="3rem"
+        >
           <Switch
             id={id}
             name={key}
@@ -105,7 +120,12 @@ function renderSwitch(
       );
     case "list":
       return (
-        <Field input id={id} label={i18n.t(title)} lHeight="3rem">
+        <Field
+          input
+          id={id}
+          label={i18n.t(title, { value: key })}
+          lHeight="3rem"
+        >
           <AddNew
             id={id}
             name={key}
@@ -118,7 +138,7 @@ function renderSwitch(
       );
     default:
       return (
-        <Field input label={i18n.t(title)} id={id}>
+        <Field input label={i18n.t(title, { value: key })} id={id}>
           <Input
             type={type}
             name={key}
@@ -152,6 +172,7 @@ const AutoFormComponent = ({
   const handleChange = useCallback(
     (key, val) => {
       setFormValues(set(key, val, formValues));
+      console.log(formValues);
     },
     [formValues, setFormValues]
   );

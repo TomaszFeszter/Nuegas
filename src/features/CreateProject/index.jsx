@@ -2,7 +2,7 @@ import React from "react";
 // import styled from "styled-components";
 import { AutoForm } from "../../components/AutoForm";
 import { useProjects } from "../../hooks";
-import createProjectSchema from "./../../config/schemas/pages/projects.json";
+import createProjectSchema from "./../../config/schemas/pages/newProject.json";
 
 // const CustomAutoForm = styled(AutoForm)`
 //   button {

@@ -67,6 +67,7 @@ export const PageTemplate = ({
   welcomeMsg,
   searchBar,
   addForm,
+  // editForm,
 }) => {
   const { user, isLoading } = useAuth();
   const [active, setActive] = useState(false);
@@ -127,9 +128,16 @@ export const PageTemplate = ({
         </ContentHeading>
         <Content>{children}</Content>
       </ContentCell>
-      <Modal active={active} setActive={setActive}>
-        {addForm}
-      </Modal>
+      {addForm ? (
+        <Modal active={active} setActive={setActive}>
+          {addForm}
+        </Modal>
+      ) : null}
+      {/* {editForm ? (
+        <Modal active={active} setActive={setActive}>
+          {editForm}
+        </Modal>
+      ) : null} */}
     </>
   );
 };

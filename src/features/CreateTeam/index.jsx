@@ -2,7 +2,7 @@ import React from "react";
 // import styled from "styled-components";
 import { AutoForm } from "../../components/AutoForm";
 import { useTeams } from "../../hooks";
-import createTeamSchema from "./../../config/schemas/pages/teams.json";
+import createTeamSchema from "./../../config/schemas/pages/newTeam.json";
 
 // const CustomAutoForm = styled(AutoForm)`
 //   button {

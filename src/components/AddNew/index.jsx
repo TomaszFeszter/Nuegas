@@ -6,7 +6,6 @@ import { Input } from "../Input";
 import { P1 } from "../Parahraphs";
 
 const AddNewComponent = ({
-  forTask,
   name,
   className,
   onChange,
@@ -15,6 +14,7 @@ const AddNewComponent = ({
   btn,
   ...rest
 }) => {
+  console.log(value);
   return (
     <div className={className}>
       <input id={id} type="hidden" name={name} value={value} {...rest} />
@@ -27,18 +27,13 @@ const AddNewComponent = ({
                 type="text"
                 onChange={(e) => {
                   const newVal = [...value];
-                  newVal[index] = forTask
-                    ? {
-                        ...input,
-                        value: e.target.value,
-                        completed: false,
-                      }
-                    : {
-                        ...input,
-                        value: e.target.value,
-                      };
+                  newVal[index] = {
+                    ...input,
+                    value: e.target.value,
+                  };
                   onChange(name, newVal);
                 }}
+                value={input["value"]}
               />
               <Btn
                 onClick={(e) => {
@@ -59,7 +54,10 @@ const AddNewComponent = ({
         onClick={(e) => {
           e.preventDefault();
           console.log(value);
-          onChange(name, [...value, { value: "", key: Date.now() }]);
+          onChange(name, [
+            ...value,
+            { value: "", complete: false, key: Date.now() },
+          ]);
         }}
       >
         {btn}

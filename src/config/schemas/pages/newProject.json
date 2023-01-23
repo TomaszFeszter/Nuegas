@@ -1,0 +1,15 @@
+{
+  "title": "projects:new:title",
+  "fields": {
+    "title": {
+      "type": "text",
+      "title": "common:title",
+      "placeholder": "common:placeholder",
+      "required": true
+    },
+    "button": {
+      "type": "submit",
+      "title": "projects:new:create:button:title"
+    }
+  }
+}
